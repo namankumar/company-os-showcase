@@ -8,7 +8,7 @@ The operator reviews a handoff preview and explicitly confirms before publicatio
 ## Requirements
 | Requirement | Priority | Notes |
 |---|---|---|
-| F-21: require preview and explicit confirmation | P0 | USER-21 supersedes PRIOR-21. |
+| F-21 | P0 | Require preview and explicit confirmation. USER-21 supersedes PRIOR-21. |
 ## User Flow
 1. Save the draft and inspect its preview.
 2. Confirm explicitly before publication can proceed. [USER-21]

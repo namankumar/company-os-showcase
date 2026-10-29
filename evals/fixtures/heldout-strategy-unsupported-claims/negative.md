@@ -19,6 +19,10 @@ Hand-authored strategy artifact control. This is deterministic grader calibratio
 The prior evaluation discussion is recorded, while impact validation and resource approval remain open. [USER-81, LIMIT-81]
 ## 3. Product Roadmap
 **The accepted phase is a local pilot.** Operator-A coordinates; exit requires agreed observations and a separate expansion decision. Automatic routing and public launch are excluded. [USER-81]
+| Phase | Goal | Owner | Exit criteria |
+|---|---|---|---|
+| Local pilot | Reviewer ownership only | Operator-A | Agree observations; separate expansion decision. USER-81 |
+
 ## 4. Product Overview
 **Ownership labels serve local reviewers.** Automatic routing is excluded from this phase. [USER-81]
 ## 5. Go-to-Market & Growth

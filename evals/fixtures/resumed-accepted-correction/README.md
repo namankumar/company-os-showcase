@@ -14,3 +14,7 @@ Positive: hand_authored_positive_control. Negative: deliberate_accepted_correcti
 ## Missing dependency caveat
 
 `.claude/skills/utils/voice.md` are absent in the public original. These files are not replaced by fixtures. Host execution requiring them is not_reached; offline artifact checks can still be calibrated.
+
+## Finite body checks
+
+The grader checks selected original section/table rows and finite seeded body statements before Evaluation Results. It does not evaluate arbitrary semantic quality or every possible contradiction. Correct appendix rows cannot replace normal artifact content. Two additional hand-authored deliberate negatives isolate an empty body and a known contradictory body while retaining the correct appendix. These are grader controls, not observed agent outcomes.

@@ -5,6 +5,7 @@ The integration test runs the actual CLI when the engine lane is merged.
 """
 import hashlib
 import json
+import os
 import re
 import subprocess
 import sys
@@ -178,13 +179,39 @@ class CaseIntegrityTests(unittest.TestCase):
         self.assertNotIn("## 5ft", positive)
         self.assertIn("Not reached", positive)
 
+    def test_every_case_has_empty_and_contradictory_body_regression_controls(self):
+        for task in TASKS.values():
+            with self.subTest(task=task["id"]):
+                positive = (ROOT / task["calibration"]["positive"]).read_text()
+                appendix = positive.split("## Evaluation Results", 1)[1]
+                self.assertTrue(task["bodyChecks"])
+                self.assertTrue(any(c["kind"] == "body_table_row" for c in task["bodyChecks"]))
+                self.assertTrue(any(c["kind"] == "forbidden_text" for c in task["bodyChecks"]))
+                for kind in ("appendixLaundered", "contradictoryBody"):
+                    control = (ROOT / task["calibration"][kind]).read_text()
+                    self.assertEqual(control.split("## Evaluation Results", 1)[1], appendix)
+                    self.assertTrue(task["controlLabels"][kind].startswith("deliberate_"))
+                operative = positive.split("## Evaluation Results", 1)[0]
+                for check in task["bodyChecks"]:
+                    if "heading" in check:
+                        self.assertIn(check["heading"], task["requiredHeadings"])
+                    if check["kind"] == "required_text":
+                        self.assertIn(check["value"], operative)
+                    elif check["kind"] == "forbidden_text":
+                        self.assertNotIn(check["value"], operative)
+                    elif check["kind"] == "body_table_row":
+                        self.assertEqual(check["key"], check["values"][0])
+                        self.assertIn("| " + " | ".join(check["values"]) + " |", operative)
+                readme = (ROOT / task["fixture"]).parent.joinpath("README.md").read_text()
+                self.assertIn("does not evaluate arbitrary semantic quality", readme)
+
     def test_actual_engine_calibration_rejects_deliberate_negative_controls(self):
-        engine = ROOT / "evals/company_os_eval.py"
+        engine = Path(os.environ.get("COMPANY_OS_EVAL_ENGINE", str(ROOT / "evals/company_os_eval.py")))
         if not engine.exists():
             self.skipTest("Engine lane is not merged; run again after integration")
         with tempfile.TemporaryDirectory(prefix="case-calibration-") as tmp:
-            out = Path(tmp) / "controls"
-            result = subprocess.run([sys.executable, str(engine), "calibrate", "--out", str(out)], cwd=ROOT, text=True, capture_output=True)
+            out = Path(tmp).resolve() / "controls"
+            result = subprocess.run([sys.executable, str(engine), "calibrate", "--suite", str(ROOT / "evals/tasks.json"), "--source-root", str(ROOT), "--out", str(out)], cwd=ROOT, text=True, capture_output=True)
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             self.assertTrue(out.is_dir())
             files = [p for p in out.rglob("*") if p.is_file()]
@@ -196,21 +223,28 @@ class CaseIntegrityTests(unittest.TestCase):
             self.assertEqual(summary["classification"], "grader_calibration")
             self.assertTrue(summary["deterministic"])
             self.assertEqual(summary["actualModelTrials"], 0)
-            self.assertEqual(summary["controlCount"], 16)
-            self.assertEqual(summary["detectedExpected"], 16)
+            self.assertEqual(summary["controlCount"], 32)
+            self.assertEqual(summary["detectedExpected"], 32)
             self.assertEqual(summary["falsePositiveControls"], 0)
             self.assertEqual(summary["falseNegativeControls"], 0)
             self.assertTrue(summary["passed"])
             pairs = {(r["taskId"], r["control"]): r for r in summary["records"]}
-            self.assertEqual(set(pairs), {(task, kind) for task in TASKS for kind in ("positive", "negative")})
+            self.assertEqual(set(pairs), {(task, kind) for task in TASKS for kind in ("positive", "negative", "appendixLaundered", "contradictoryBody")})
             for (task, kind), record in pairs.items():
                 self.assertEqual(record["artifactOutcome"], "pass" if kind == "positive" else "fail")
                 self.assertTrue(record["calibrationPassed"])
                 self.assertEqual(record["controlOrigin"], "hand_authored_not_model")
                 if kind == "negative":
                     failed = [c for c in record["checks"] if not c["passed"]]
-                    self.assertEqual(len(failed), 1, "Each deliberate wrong claim must be caught once")
-                    self.assertEqual(failed[0]["kind"], "row_equals")
+                    self.assertTrue(failed, "The deliberately wrong appendix claim must be rejected")
+                    self.assertIn("row_equals", {c["kind"] for c in failed})
+                if kind == "appendixLaundered":
+                    failed = [c for c in record["checks"] if not c["passed"]]
+                    self.assertTrue(failed, "A correct appendix must not rescue empty original sections")
+                    self.assertTrue({c["id"] for c in failed} & {c["id"] for c in TASKS[task]["bodyChecks"] if c["kind"] in ("body_table_row", "required_text")})
+                if kind == "contradictoryBody":
+                    failed = [c for c in record["checks"] if not c["passed"]]
+                    self.assertTrue({c["id"] for c in failed} & {c["id"] for c in TASKS[task]["bodyChecks"] if c["kind"] == "forbidden_text"}, "A correct appendix must not rescue known contrary operative statements")
 
 
 if __name__ == "__main__":
