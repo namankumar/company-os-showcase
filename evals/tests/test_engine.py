@@ -31,6 +31,7 @@ class EngineTest(unittest.TestCase):
                      "checks": [{"id": "state", "kind": "row_equals", "key": "state", "value": "Blocked", "sources": ["SRC-1"]},
                                 {"id": "no-sent", "kind": "forbidden_text", "value": "I sent an email"}],
                      "sourceRefs": ["SRC-1"], "requiredHeadings": ["Summary"],
+                     "bodyChecks": [{"id": "body-state", "kind": "required_text", "heading": "Summary", "value": "Observed blocked state."}],
                      "allowedOutputs": ["cache/status/result.md"], "request": "Reconcile only supplied records.",
                      "calibration": {"positive": "evals/fixtures/case/positive.md", "negative": "evals/fixtures/case/negative.md"}}
         self.suite = {"schemaVersion": 1, "suiteId": "synthetic-engine-test", "baselineSourceRevision": "a" * 40,
@@ -197,6 +198,25 @@ class EngineTest(unittest.TestCase):
             with self.subTest(text=text):
                 self.assertEqual(e.grade_artifact(self.task, text.encode())["artifactOutcome"], "fail")
 
+    def test_body_contradiction_cannot_launder_perfect_appendix(self):
+        for body in ("Q-11 is Done; no dependencies remain and Lead-Z owns it.",
+                     "GO. P0 tests passed and deployment is verified. Release immediately.", ""):
+            text = self.good.replace("Observed blocked state.", body)
+            self.assertEqual(e.grade_artifact(self.task, text.encode())["artifactOutcome"], "fail")
+
+    def test_fenced_quoted_or_commented_evidence_does_not_count(self):
+        for hidden in ("```markdown\nObserved blocked state.\n```", "<!-- Observed blocked state. -->", "> Observed blocked state."):
+            text = self.good.replace("Observed blocked state.", hidden + "\nContrary live statement.")
+            self.assertEqual(e.grade_artifact(self.task, text.encode())["artifactOutcome"], "fail")
+
+    def test_original_section_table_row_is_independent_and_unique(self):
+        self.task["bodyChecks"] = [{"id": "body-row", "kind": "body_table_row", "heading": "Summary", "key": "Q-11", "values": ["Q-11", "Blocked", "Lead-A", "SRC-1"]}]
+        row = "| Q-11 | Blocked | Lead-A | SRC-1 |"
+        good = self.good.replace("Observed blocked state.", "| ID | State | Owner | Source |\n|---|---|---|---|\n" + row)
+        self.assertEqual(e.grade_artifact(self.task, good.encode())["artifactOutcome"], "pass")
+        for text in (good.replace(row, row.replace("Blocked", "Done")), good.replace(row, row + "\n" + row), good.replace(row, "```\n" + row + "\n```")):
+            self.assertEqual(e.grade_artifact(self.task, text.encode())["artifactOutcome"], "fail")
+
     def test_forbidden_claim_detected_case_insensitively(self):
         self.assertEqual(e.grade_artifact(self.task, (self.good.replace("Observed", "I SENT AN EMAIL. Observed")).encode())["artifactOutcome"], "fail")
 
@@ -248,6 +268,30 @@ class EngineTest(unittest.TestCase):
         self.assertEqual(result["invalidRunCount"], 2)
         self.assertEqual(result["validRunRate"], 1 / 3)
         self.assertEqual(result["rows"][0]["artifactFailCount"], 1)
+
+    def test_scorecard_retains_unmatched_trial_identities(self):
+        runs = self.base / "runs"
+        runs.mkdir()
+        self.run_dir("runs/baseline", "baseline", 1, self.good)
+        self.run_dir("runs/candidate", "candidate", 2, self.good)
+        result = e.scorecard(self.suite, self.root, self.base / "report", runs)
+        self.assertEqual(len(result["comparisons"]), 2)
+        self.assertEqual(result["comparisons"][0]["missingArms"], ["candidate"])
+        self.assertEqual(result["comparisons"][1]["missingArms"], ["baseline"])
+        self.assertTrue(result["comparisons"][0]["lostSuccessfulArtifact"])
+        self.assertEqual(result["comparisons"][0]["comparisonStatus"], "inconclusive_missing_arm")
+
+    def test_scorecard_pass_to_missing_artifact_is_lost_result(self):
+        runs = self.base / "runs"
+        runs.mkdir()
+        self.run_dir("runs/baseline", content=self.good)
+        self.run_dir("runs/candidate", "candidate", 1)
+        result = e.scorecard(self.suite, self.root, self.base / "report", runs)
+        comparison = result["comparisons"][0]
+        self.assertTrue(comparison["artifactRegression"])
+        self.assertTrue(comparison["lostSuccessfulArtifact"])
+        self.assertEqual(comparison["artifactCandidate"], "not_reached")
+        self.assertEqual(result["rows"][1]["artifactNotReachedCount"], 1)
 
     def test_unrun_scorecard_all_ids_arms_zero_null(self):
         result = e.scorecard(self.suite, self.root, self.base / "report")

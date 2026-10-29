@@ -26,7 +26,7 @@ CONFIG = {
 }
 TASK_KEYS = {"id", "split", "skill", "fixture", "artifact", "dependencies", "checks",
              "sourceRefs", "requiredHeadings", "allowedOutputs", "request",
-             "calibration", "controlLabels"}
+             "calibration", "controlLabels", "bodyChecks"}
 
 
 class Invalid(ValueError):
@@ -179,15 +179,37 @@ def load_suite(path):
                 strings(check["sources"], "check sources", True)
                 if set(check["sources"]) - set(task["sourceRefs"]):
                     raise Invalid("rubric reference outside whitelist")
+        if not isinstance(task["bodyChecks"], list) or not task["bodyChecks"] or len(task["bodyChecks"]) > 100:
+            raise Invalid("bodyChecks must be a bounded independent artifact-body contract")
+        body_ids = set()
+        for check in task["bodyChecks"]:
+            if not isinstance(check, dict) or check.get("kind") not in ("required_text", "forbidden_text", "body_table_row"):
+                raise Invalid("invalid body check")
+            kind = check["kind"]
+            fields = {"id", "kind", "heading", "key", "values"} if kind == "body_table_row" else {"id", "kind", "value"}
+            if kind != "body_table_row" and "heading" in check:
+                fields.add("heading")
+            if set(check) != fields or not isinstance(check["id"], str) or not check["id"] or check["id"] in body_ids:
+                raise Invalid("unknown/duplicate body check schema")
+            body_ids.add(check["id"])
+            if "heading" in check and (check["heading"] not in task["requiredHeadings"] or check["heading"] == "Evaluation Results"):
+                raise Invalid("body check must reference normal required section")
+            if kind == "body_table_row":
+                if not isinstance(check["values"], list) or not check["values"] or any(not isinstance(v, str) or not v for v in check["values"]):
+                    raise Invalid("body row values must be nonempty strings")
+                if not isinstance(check["key"], str) or not check["key"] or check["values"][0] != check["key"]:
+                    raise Invalid("body row key must be first cell")
+            elif not isinstance(check["value"], str) or not check["value"]:
+                raise Invalid("body text value must be nonempty")
         if "calibration" in task:
-            if not isinstance(task["calibration"], dict) or set(task["calibration"]) != {"positive", "negative"}:
+            if not isinstance(task["calibration"], dict) or not {"positive", "negative"} <= set(task["calibration"]) or set(task["calibration"]) - {"positive", "negative", "appendixLaundered", "contradictoryBody"}:
                 raise Invalid("invalid calibration schema")
             for control in task["calibration"].values():
                 relative(control)
                 if not control.startswith("evals/fixtures/" + task["id"] + "/") or "/workspace/" in control:
                     raise Invalid("calibration control must stay outside workspace")
         if "controlLabels" in task:
-            if not isinstance(task["controlLabels"], dict) or set(task["controlLabels"]) != {"positive", "negative"} or any(not isinstance(x, str) for x in task["controlLabels"].values()):
+            if not isinstance(task["controlLabels"], dict) or set(task["controlLabels"]) != set(task.get("calibration", {})) or any(not isinstance(x, str) for x in task["controlLabels"].values()):
                 raise Invalid("invalid control labels")
     return data
 
@@ -275,7 +297,7 @@ def expected(suite, task, root):
         raise Invalid("artifact/request collides with protected input")
     reset["EVAL-REQUEST.md"] = raw_hash(prompt(task))
     gaps = [p for p in task["dependencies"] if p not in reset]
-    rubric = {k: task[k] for k in ("checks", "sourceRefs", "requiredHeadings", "allowedOutputs")}
+    rubric = {k: task[k] for k in ("checks", "bodyChecks", "sourceRefs", "requiredHeadings", "allowedOutputs")}
     bindings = {"suiteHash": digest(suite), "taskHash": digest(task),
                 "sourceHash": digest(src), "fixtureHash": digest(fix),
                 "promptHash": raw_hash(prompt(task)), "configHash": digest(CONFIG),
@@ -379,6 +401,47 @@ def parse_rows(text):
     return rows
 
 
+def visible_markdown(text):
+    """Do not treat comments, fenced examples, or blockquotes as asserted evidence."""
+    text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
+    visible, fence = [], None
+    for line in text.splitlines():
+        match = re.match(r"^\s*(`{3,}|~{3,})", line)
+        if match:
+            marker = match.group(1)
+            if fence is None:
+                fence = (marker[0], len(marker))
+            elif marker[0] == fence[0] and len(marker) >= fence[1]:
+                fence = None
+            continue
+        if fence is None and not re.match(r"^\s*>", line):
+            visible.append(line)
+    return "\n".join(visible)
+
+
+def sections(text):
+    lines = text.splitlines()
+    found = []
+    for index, line in enumerate(lines):
+        match = re.match(r"^(#{1,6})[ \t]+(.+?)[ \t]*#*[ \t]*$", line)
+        if match:
+            found.append((index, len(match.group(1)), match.group(2).strip()))
+    result = {}
+    for index, (start, level, title) in enumerate(found):
+        end = next((other_start for other_start, other_level, _ in found[index + 1:] if other_level <= level), len(lines))
+        if title in result:
+            raise Invalid("duplicate artifact heading: " + title)
+        result[title] = "\n".join(lines[start + 1:end])
+    return result
+
+
+def substantive(section):
+    for line in section.splitlines():
+        if line.strip() and not re.match(r"^\s*#", line) and not re.fullmatch(r"[|: \t-]+", line):
+            return True
+    return False
+
+
 def grade_artifact(task, data):
     try:
         text = data.decode("utf-8")
@@ -387,8 +450,10 @@ def grade_artifact(task, data):
     if "\x00" in text:
         raise Invalid("artifact contains NUL")
     checks, errors = [], []
+    visible = visible_markdown(text)
+    body = visible.split("## Evaluation Results", 1)[0]
     try:
-        rows = parse_rows(text)
+        rows = parse_rows(visible)
     except Invalid as exc:
         rows = {}
         errors.append(str(exc))
@@ -398,10 +463,34 @@ def grade_artifact(task, data):
     for key, row in rows.items():
         if set(row["sources"]) - set(task["sourceRefs"]):
             errors.append("unknown source reference in " + key)
-    headings = {m.group(1).strip() for m in re.finditer(r"^#{1,6}\s+(.+?)\s*#*\s*$", text, re.M)}
+    try:
+        all_sections = sections(visible)
+        body_sections = sections(body)
+    except Invalid as exc:
+        all_sections, body_sections = {}, {}
+        errors.append(str(exc))
     for heading in task["requiredHeadings"]:
-        checks.append({"id": "heading:" + heading, "passed": heading in headings,
-                       "kind": "required_heading"})
+        checks.append({"id": "heading:" + heading, "passed": heading in all_sections and substantive(all_sections[heading]),
+                       "kind": "required_nonempty_heading"})
+    for check in task.get("bodyChecks", []):
+        selected = body_sections.get(check.get("heading"), "") if "heading" in check else body
+        if check["kind"] == "body_table_row":
+            matched = []
+            for line in selected.splitlines():
+                line = line.strip()
+                if line.startswith("|") and line.endswith("|"):
+                    cells = [cell.strip() for cell in line[1:-1].split("|")]
+                    if cells and cells[0] == check["key"]:
+                        matched.append(cells)
+            passed = len(matched) == 1 and matched[0] == check["values"]
+        elif check["kind"] == "required_text":
+            passed = check["value"] in selected
+        else:
+            # Forbiddens inspect raw body too: hiding a contrary asserted claim is not a pass.
+            raw_body = text.split("## Evaluation Results", 1)[0]
+            forbidden_scope = selected if "heading" in check else raw_body
+            passed = check["value"].casefold() not in forbidden_scope.casefold()
+        checks.append({"id": check["id"], "kind": "body_" + check["kind"], "passed": passed})
     for check in task["checks"]:
         kind = check["kind"]
         if kind == "row_equals":
@@ -414,7 +503,7 @@ def grade_artifact(task, data):
         checks.append({"id": check["id"], "kind": kind, "passed": passed})
     return {"artifactOutcome": "pass" if not errors and all(c["passed"] for c in checks) else "fail",
             "checks": checks, "errors": errors, "passedChecks": sum(c["passed"] for c in checks),
-            "totalChecks": len(checks), "forbiddenContractFailures": sum(not c["passed"] for c in checks if c["kind"] == "forbidden_text")}
+            "totalChecks": len(checks), "forbiddenContractFailures": sum(not c["passed"] for c in checks if c["kind"] in ("forbidden_text", "body_forbidden_text"))}
 
 
 def grade(suite, root, run):
@@ -452,7 +541,7 @@ def grade(suite, root, run):
         submitted = True
     else:
         result = {"artifactOutcome": "not_reached", "checks": [], "errors": ["artifact absent"],
-                  "passedChecks": 0, "totalChecks": len(task["checks"]) + len(task["requiredHeadings"]),
+                  "passedChecks": 0, "totalChecks": len(task["checks"]) + len(task["requiredHeadings"]) + len(task.get("bodyChecks", [])),
                   "forbiddenContractFailures": 0}
         submitted = False
     if modified or added:
@@ -489,14 +578,14 @@ def calibrate(suite, root, out):
     for task in suite["tasks"]:
         if "calibration" not in task:
             raise Invalid("missing hand-authored calibration controls: " + task["id"])
-        for label in ("positive", "negative"):
+        for label in task["calibration"]:
             controls.append((task, label, read_bytes(safe_path(root, task["calibration"][label]))))
     output_boundary(root, out)
     out = new_dir(out)
     records = []
     for task, label, data in controls:
         run = out / (task["id"] + "-" + label)
-        prepare(suite, task, root, run, "baseline", 1 if label == "positive" else 2, "grader_calibration")
+        prepare(suite, task, root, run, "baseline", list(task["calibration"]).index(label) + 1, "grader_calibration")
         artifact = safe_path(run / "workspace", task["artifact"])
         artifact.parent.mkdir(parents=True, exist_ok=True)
         artifact.write_bytes(data)
@@ -509,7 +598,7 @@ def calibrate(suite, root, out):
     summary = {"schemaVersion": SCHEMA, "classification": "grader_calibration",
                "deterministic": True, "actualModelTrials": 0,
                "controlCount": len(records), "detectedExpected": sum(r["calibrationPassed"] for r in records),
-               "falsePositiveControls": sum(r["control"] == "negative" and r["artifactOutcome"] == "pass" for r in records),
+               "falsePositiveControls": sum(r["control"] != "positive" and r["artifactOutcome"] == "pass" for r in records),
                "falseNegativeControls": sum(r["control"] == "positive" and r["artifactOutcome"] != "pass" for r in records),
                "passed": all(r["calibrationPassed"] for r in records), "records": records}
     write_json(out / "calibration.json", summary)
@@ -558,14 +647,19 @@ def scorecard(suite, root, out, runs=None):
                          "hostOutcome": "not_reached" if not selected or task_pre["dependencyGaps"] else "inconclusive",
                          "elapsedGraderSeconds": sum(r["elapsedGraderSeconds"] for r in selected)})
         by_arm = {arm: {r["trial"]: r for r in records if r["taskId"] == task["id"] and r["arm"] == arm and r["runKind"] == "manual_host"} for arm in ("baseline", "candidate")}
-        for trial in sorted(set(by_arm["baseline"]) & set(by_arm["candidate"])):
-            a, b = by_arm["baseline"][trial], by_arm["candidate"][trial]
-            if a["bindings"] != b["bindings"]:
+        for trial in sorted(set(by_arm["baseline"]) | set(by_arm["candidate"])):
+            a, b = by_arm["baseline"].get(trial), by_arm["candidate"].get(trial)
+            if a is not None and b is not None and a["bindings"] != b["bindings"]:
                 invalid.append({"entry": task["id"], "error": "comparison identity mismatch"})
                 continue
-            comparisons.append({"taskId": task["id"], "trial": trial, "artifactBaseline": a["artifactOutcome"],
-                                "artifactCandidate": b["artifactOutcome"],
-                                "artifactRegression": a["artifactOutcome"] == "pass" and b["artifactOutcome"] == "fail",
+            missing = [arm for arm, record in (("baseline", a), ("candidate", b)) if record is None]
+            baseline_outcome = a["artifactOutcome"] if a else "not_reached"
+            candidate_outcome = b["artifactOutcome"] if b else "not_reached"
+            comparisons.append({"taskId": task["id"], "trial": trial, "artifactBaseline": baseline_outcome,
+                                "artifactCandidate": candidate_outcome, "missingArms": missing,
+                                "comparisonStatus": "inconclusive_missing_arm" if missing else "bounded_artifact_pair",
+                                "artifactRegression": baseline_outcome == "pass" and candidate_outcome in ("fail", "not_reached"),
+                                "lostSuccessfulArtifact": baseline_outcome == "pass" and candidate_outcome == "not_reached",
                                 "modelUplift": None, "modelComparison": "inconclusive_no_model_trace"})
     output_boundary(root, out)
     out = new_dir(out)
