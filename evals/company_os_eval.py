@@ -202,7 +202,7 @@ def load_suite(path):
             elif not isinstance(check["value"], str) or not check["value"]:
                 raise Invalid("body text value must be nonempty")
         if "calibration" in task:
-            if not isinstance(task["calibration"], dict) or not {"positive", "negative"} <= set(task["calibration"]) or set(task["calibration"]) - {"positive", "negative", "appendixLaundered", "contradictoryBody"}:
+            if not isinstance(task["calibration"], dict) or not {"positive", "negative"} <= set(task["calibration"]) or set(task["calibration"]) - {"positive", "negative", "appendixLaundered", "contradictoryBody", "appendedContradiction", "inlineHeadingBypass"}:
                 raise Invalid("invalid calibration schema")
             for control in task["calibration"].values():
                 relative(control)
@@ -364,22 +364,28 @@ def prepare(suite, task, root, out, arm, trial, kind="manual_host"):
             "prepared": True, "modelExecuted": False}
 
 
-def parse_rows(text):
-    lines = text.splitlines()
-    starts = [i for i, line in enumerate(lines) if line.strip() == "## Evaluation Results"]
+def evaluation_start(text):
+    """Recognize an exact real heading, never an inline substring or example."""
+    starts = [i for i, line in enumerate(text.splitlines()) if line.strip() == "## Evaluation Results"]
     if len(starts) != 1:
         raise Invalid("require exactly one Evaluation Results section")
+    return starts[0]
+
+
+def parse_rows(text):
+    lines = text.splitlines()
+    start = evaluation_start(text)
     segment = []
-    for line in lines[starts[0] + 1:]:
-        if re.match(r"^#{1,6}\s", line):
-            break
+    for line in lines[start + 1:]:
+        if re.match(r"^\s*#{1,6}\s", line):
+            raise Invalid("Evaluation Results must be the final section")
         if line.strip():
             segment.append(line.strip())
     if len(segment) < 2:
         raise Invalid("missing results table")
     def cells(line):
         if not line.startswith("|") or not line.endswith("|"):
-            raise Invalid("results section must contain only a three-column Markdown table")
+            raise Invalid("Evaluation Results must be the final section containing only a three-column Markdown table")
         parts = [p.strip() for p in line[1:-1].split("|")]
         if len(parts) != 3:
             raise Invalid("results table must have three columns")
@@ -403,7 +409,10 @@ def parse_rows(text):
 
 def visible_markdown(text):
     """Do not treat comments, fenced examples, or blockquotes as asserted evidence."""
-    text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
+    # Keep one output line for each input line so the recognized real heading
+    # has the same index in raw text and sanitized text. Hidden markers cannot
+    # truncate the raw forbidden-claim scope.
+    text = re.sub(r"<!--.*?-->", lambda m: "\n" * m.group(0).count("\n"), text, flags=re.S)
     visible, fence = [], None
     for line in text.splitlines():
         match = re.match(r"^\s*(`{3,}|~{3,})", line)
@@ -413,9 +422,12 @@ def visible_markdown(text):
                 fence = (marker[0], len(marker))
             elif marker[0] == fence[0] and len(marker) >= fence[1]:
                 fence = None
+            visible.append("")
             continue
         if fence is None and not re.match(r"^\s*>", line):
             visible.append(line)
+        else:
+            visible.append("")
     return "\n".join(visible)
 
 
@@ -451,9 +463,15 @@ def grade_artifact(task, data):
         raise Invalid("artifact contains NUL")
     checks, errors = [], []
     visible = visible_markdown(text)
-    body = visible.split("## Evaluation Results", 1)[0]
+    body, raw_body = visible, text
     try:
-        rows = parse_rows(visible)
+        start = evaluation_start(visible)
+        body = "\n".join(visible.splitlines()[:start])
+        raw_lines = text.splitlines()
+        raw_body = "\n".join(raw_lines[:start])
+        # Parse the raw suffix, not a sanitized suffix: the terminal appendix
+        # permits only its actual table, with no hidden or visible later body.
+        rows = parse_rows("\n".join(raw_lines[start:]))
     except Invalid as exc:
         rows = {}
         errors.append(str(exc))
@@ -487,7 +505,6 @@ def grade_artifact(task, data):
             passed = check["value"] in selected
         else:
             # Forbiddens inspect raw body too: hiding a contrary asserted claim is not a pass.
-            raw_body = text.split("## Evaluation Results", 1)[0]
             forbidden_scope = selected if "heading" in check else raw_body
             passed = check["value"].casefold() not in forbidden_scope.casefold()
         checks.append({"id": check["id"], "kind": "body_" + check["kind"], "passed": passed})
