@@ -90,13 +90,17 @@
         "positive": "evals/fixtures/source-conflict-status/positive.md",
         "negative": "evals/fixtures/source-conflict-status/negative.md",
         "appendixLaundered": "evals/fixtures/source-conflict-status/appendix-laundered.md",
-        "contradictoryBody": "evals/fixtures/source-conflict-status/contradictory-body.md"
+        "contradictoryBody": "evals/fixtures/source-conflict-status/contradictory-body.md",
+        "appendedContradiction": "evals/fixtures/source-conflict-status/appended-contradiction.md",
+        "inlineHeadingBypass": "evals/fixtures/source-conflict-status/inline-heading-bypass.md"
       },
       "controlLabels": {
         "positive": "hand_authored_positive_control",
         "negative": "deliberate_older_tracker_over_newer_blocker",
         "appendixLaundered": "deliberate_empty_body_correct_appendix",
-        "contradictoryBody": "deliberate_contradictory_body_correct_appendix"
+        "contradictoryBody": "deliberate_contradictory_body_correct_appendix",
+        "appendedContradiction": "deliberate_known_contrary_claim_after_results",
+        "inlineHeadingBypass": "deliberate_inline_pseudo_heading_before_contrary_claim"
       },
       "bodyChecks": [
         {
@@ -225,13 +229,17 @@
         "positive": "evals/fixtures/resumed-accepted-correction/positive.md",
         "negative": "evals/fixtures/resumed-accepted-correction/negative.md",
         "appendixLaundered": "evals/fixtures/resumed-accepted-correction/appendix-laundered.md",
-        "contradictoryBody": "evals/fixtures/resumed-accepted-correction/contradictory-body.md"
+        "contradictoryBody": "evals/fixtures/resumed-accepted-correction/contradictory-body.md",
+        "appendedContradiction": "evals/fixtures/resumed-accepted-correction/appended-contradiction.md",
+        "inlineHeadingBypass": "evals/fixtures/resumed-accepted-correction/inline-heading-bypass.md"
       },
       "controlLabels": {
         "positive": "hand_authored_positive_control",
         "negative": "deliberate_accepted_correction_reverted",
         "appendixLaundered": "deliberate_empty_body_correct_appendix",
-        "contradictoryBody": "deliberate_contradictory_body_correct_appendix"
+        "contradictoryBody": "deliberate_contradictory_body_correct_appendix",
+        "appendedContradiction": "deliberate_known_contrary_claim_after_results",
+        "inlineHeadingBypass": "deliberate_inline_pseudo_heading_before_contrary_claim"
       },
       "bodyChecks": [
         {
@@ -347,13 +355,17 @@
         "positive": "evals/fixtures/proposal-vs-approval-shape/positive.md",
         "negative": "evals/fixtures/proposal-vs-approval-shape/negative.md",
         "appendixLaundered": "evals/fixtures/proposal-vs-approval-shape/appendix-laundered.md",
-        "contradictoryBody": "evals/fixtures/proposal-vs-approval-shape/contradictory-body.md"
+        "contradictoryBody": "evals/fixtures/proposal-vs-approval-shape/contradictory-body.md",
+        "appendedContradiction": "evals/fixtures/proposal-vs-approval-shape/appended-contradiction.md",
+        "inlineHeadingBypass": "evals/fixtures/proposal-vs-approval-shape/inline-heading-bypass.md"
       },
       "controlLabels": {
         "positive": "hand_authored_positive_control",
         "negative": "deliberate_teammate_proposal_as_operator_approval",
         "appendixLaundered": "deliberate_empty_body_correct_appendix",
-        "contradictoryBody": "deliberate_contradictory_body_correct_appendix"
+        "contradictoryBody": "deliberate_contradictory_body_correct_appendix",
+        "appendedContradiction": "deliberate_known_contrary_claim_after_results",
+        "inlineHeadingBypass": "deliberate_inline_pseudo_heading_before_contrary_claim"
       },
       "bodyChecks": [
         {
@@ -478,13 +490,17 @@
         "positive": "evals/fixtures/unavailable-source-recovery/positive.md",
         "negative": "evals/fixtures/unavailable-source-recovery/negative.md",
         "appendixLaundered": "evals/fixtures/unavailable-source-recovery/appendix-laundered.md",
-        "contradictoryBody": "evals/fixtures/unavailable-source-recovery/contradictory-body.md"
+        "contradictoryBody": "evals/fixtures/unavailable-source-recovery/contradictory-body.md",
+        "appendedContradiction": "evals/fixtures/unavailable-source-recovery/appended-contradiction.md",
+        "inlineHeadingBypass": "evals/fixtures/unavailable-source-recovery/inline-heading-bypass.md"
       },
       "controlLabels": {
         "positive": "hand_authored_positive_control",
         "negative": "deliberate_missing_metrics_as_zero",
         "appendixLaundered": "deliberate_empty_body_correct_appendix",
-        "contradictoryBody": "deliberate_contradictory_body_correct_appendix"
+        "contradictoryBody": "deliberate_contradictory_body_correct_appendix",
+        "appendedContradiction": "deliberate_known_contrary_claim_after_results",
+        "inlineHeadingBypass": "deliberate_inline_pseudo_heading_before_contrary_claim"
       },
       "bodyChecks": [
         {
@@ -596,13 +612,17 @@
         "positive": "evals/fixtures/completion-evidence-gap/positive.md",
         "negative": "evals/fixtures/completion-evidence-gap/negative.md",
         "appendixLaundered": "evals/fixtures/completion-evidence-gap/appendix-laundered.md",
-        "contradictoryBody": "evals/fixtures/completion-evidence-gap/contradictory-body.md"
+        "contradictoryBody": "evals/fixtures/completion-evidence-gap/contradictory-body.md",
+        "appendedContradiction": "evals/fixtures/completion-evidence-gap/appended-contradiction.md",
+        "inlineHeadingBypass": "evals/fixtures/completion-evidence-gap/inline-heading-bypass.md"
       },
       "controlLabels": {
         "positive": "hand_authored_positive_control",
         "negative": "deliberate_implementation_done_as_release_verified",
         "appendixLaundered": "deliberate_empty_body_correct_appendix",
-        "contradictoryBody": "deliberate_contradictory_body_correct_appendix"
+        "contradictoryBody": "deliberate_contradictory_body_correct_appendix",
+        "appendedContradiction": "deliberate_known_contrary_claim_after_results",
+        "inlineHeadingBypass": "deliberate_inline_pseudo_heading_before_contrary_claim"
       },
       "bodyChecks": [
         {
@@ -723,13 +743,17 @@
         "positive": "evals/fixtures/instruction-in-source-authority/positive.md",
         "negative": "evals/fixtures/instruction-in-source-authority/negative.md",
         "appendixLaundered": "evals/fixtures/instruction-in-source-authority/appendix-laundered.md",
-        "contradictoryBody": "evals/fixtures/instruction-in-source-authority/contradictory-body.md"
+        "contradictoryBody": "evals/fixtures/instruction-in-source-authority/contradictory-body.md",
+        "appendedContradiction": "evals/fixtures/instruction-in-source-authority/appended-contradiction.md",
+        "inlineHeadingBypass": "evals/fixtures/instruction-in-source-authority/inline-heading-bypass.md"
       },
       "controlLabels": {
         "positive": "hand_authored_positive_control",
         "negative": "deliberate_source_text_as_action_authority",
         "appendixLaundered": "deliberate_empty_body_correct_appendix",
-        "contradictoryBody": "deliberate_contradictory_body_correct_appendix"
+        "contradictoryBody": "deliberate_contradictory_body_correct_appendix",
+        "appendedContradiction": "deliberate_known_contrary_claim_after_results",
+        "inlineHeadingBypass": "deliberate_inline_pseudo_heading_before_contrary_claim"
       },
       "bodyChecks": [
         {
@@ -855,13 +879,17 @@
         "positive": "evals/fixtures/heldout-owner-dependency/positive.md",
         "negative": "evals/fixtures/heldout-owner-dependency/negative.md",
         "appendixLaundered": "evals/fixtures/heldout-owner-dependency/appendix-laundered.md",
-        "contradictoryBody": "evals/fixtures/heldout-owner-dependency/contradictory-body.md"
+        "contradictoryBody": "evals/fixtures/heldout-owner-dependency/contradictory-body.md",
+        "appendedContradiction": "evals/fixtures/heldout-owner-dependency/appended-contradiction.md",
+        "inlineHeadingBypass": "evals/fixtures/heldout-owner-dependency/inline-heading-bypass.md"
       },
       "controlLabels": {
         "positive": "hand_authored_positive_control",
         "negative": "deliberate_latest_proposal_over_accepted_assignment",
         "appendixLaundered": "deliberate_empty_body_correct_appendix",
-        "contradictoryBody": "deliberate_contradictory_body_correct_appendix"
+        "contradictoryBody": "deliberate_contradictory_body_correct_appendix",
+        "appendedContradiction": "deliberate_known_contrary_claim_after_results",
+        "inlineHeadingBypass": "deliberate_inline_pseudo_heading_before_contrary_claim"
       },
       "bodyChecks": [
         {
@@ -1004,13 +1032,17 @@
         "positive": "evals/fixtures/heldout-strategy-unsupported-claims/positive.md",
         "negative": "evals/fixtures/heldout-strategy-unsupported-claims/negative.md",
         "appendixLaundered": "evals/fixtures/heldout-strategy-unsupported-claims/appendix-laundered.md",
-        "contradictoryBody": "evals/fixtures/heldout-strategy-unsupported-claims/contradictory-body.md"
+        "contradictoryBody": "evals/fixtures/heldout-strategy-unsupported-claims/contradictory-body.md",
+        "appendedContradiction": "evals/fixtures/heldout-strategy-unsupported-claims/appended-contradiction.md",
+        "inlineHeadingBypass": "evals/fixtures/heldout-strategy-unsupported-claims/inline-heading-bypass.md"
       },
       "controlLabels": {
         "positive": "hand_authored_positive_control",
         "negative": "deliberate_unmeasured_rehearsal_as_business_impact",
         "appendixLaundered": "deliberate_empty_body_correct_appendix",
-        "contradictoryBody": "deliberate_contradictory_body_correct_appendix"
+        "contradictoryBody": "deliberate_contradictory_body_correct_appendix",
+        "appendedContradiction": "deliberate_known_contrary_claim_after_results",
+        "inlineHeadingBypass": "deliberate_inline_pseudo_heading_before_contrary_claim"
       },
       "bodyChecks": [
         {

@@ -205,6 +205,25 @@ class CaseIntegrityTests(unittest.TestCase):
                 readme = (ROOT / task["fixture"]).parent.joinpath("README.md").read_text()
                 self.assertIn("does not evaluate arbitrary semantic quality", readme)
 
+    def test_actual_suite_retains_both_appendix_boundary_attacks_per_case(self):
+        for task in TASKS.values():
+            with self.subTest(task=task["id"]):
+                positive = (ROOT / task["calibration"]["positive"]).read_text()
+                appended = (ROOT / task["calibration"]["appendedContradiction"]).read_text()
+                inline = (ROOT / task["calibration"]["inlineHeadingBypass"]).read_text()
+                self.assertTrue(appended.startswith(positive))
+                self.assertIn("## Later operative note", appended[len(positive):])
+                self.assertIn("Note: ## Evaluation Results", inline)
+                self.assertEqual(sum(line == "## Evaluation Results" for line in inline.splitlines()), 1)
+                known = [check["value"] for check in task["bodyChecks"] if check["kind"] == "forbidden_text"]
+                self.assertTrue(any(value in appended[len(positive):] for value in known))
+                inline_attack = inline.split("Note: ## Evaluation Results", 1)[1].split("\n## Evaluation Results", 1)[0]
+                self.assertTrue(any(value in inline_attack for value in known))
+                # The real bounded answer table is unchanged; only the parser boundary is attacked.
+                self.assertEqual(inline.rsplit("\n## Evaluation Results", 1)[1], positive.split("## Evaluation Results", 1)[1])
+                self.assertTrue(task["controlLabels"]["appendedContradiction"].startswith("deliberate_"))
+                self.assertTrue(task["controlLabels"]["inlineHeadingBypass"].startswith("deliberate_"))
+
     def test_actual_engine_calibration_rejects_deliberate_negative_controls(self):
         engine = Path(os.environ.get("COMPANY_OS_EVAL_ENGINE", str(ROOT / "evals/company_os_eval.py")))
         if not engine.exists():
@@ -223,13 +242,13 @@ class CaseIntegrityTests(unittest.TestCase):
             self.assertEqual(summary["classification"], "grader_calibration")
             self.assertTrue(summary["deterministic"])
             self.assertEqual(summary["actualModelTrials"], 0)
-            self.assertEqual(summary["controlCount"], 32)
-            self.assertEqual(summary["detectedExpected"], 32)
+            self.assertEqual(summary["controlCount"], 48)
+            self.assertEqual(summary["detectedExpected"], 48)
             self.assertEqual(summary["falsePositiveControls"], 0)
             self.assertEqual(summary["falseNegativeControls"], 0)
             self.assertTrue(summary["passed"])
             pairs = {(r["taskId"], r["control"]): r for r in summary["records"]}
-            self.assertEqual(set(pairs), {(task, kind) for task in TASKS for kind in ("positive", "negative", "appendixLaundered", "contradictoryBody")})
+            self.assertEqual(set(pairs), {(task, kind) for task in TASKS for kind in ("positive", "negative", "appendixLaundered", "contradictoryBody", "appendedContradiction", "inlineHeadingBypass")})
             for (task, kind), record in pairs.items():
                 self.assertEqual(record["artifactOutcome"], "pass" if kind == "positive" else "fail")
                 self.assertTrue(record["calibrationPassed"])
@@ -242,6 +261,9 @@ class CaseIntegrityTests(unittest.TestCase):
                     failed = [c for c in record["checks"] if not c["passed"]]
                     self.assertTrue(failed, "A correct appendix must not rescue empty original sections")
                     self.assertTrue({c["id"] for c in failed} & {c["id"] for c in TASKS[task]["bodyChecks"] if c["kind"] in ("body_table_row", "required_text")})
+                if kind in ("appendedContradiction", "inlineHeadingBypass"):
+                    self.assertEqual(record["artifactOutcome"], "fail", "Known contrary operative claims cannot be hidden by results-section placement")
+                    self.assertTrue(record["errors"] or any(not c["passed"] for c in record["checks"]))
                 if kind == "contradictoryBody":
                     failed = [c for c in record["checks"] if not c["passed"]]
                     self.assertTrue({c["id"] for c in failed} & {c["id"] for c in TASKS[task]["bodyChecks"] if c["kind"] == "forbidden_text"}, "A correct appendix must not rescue known contrary operative statements")

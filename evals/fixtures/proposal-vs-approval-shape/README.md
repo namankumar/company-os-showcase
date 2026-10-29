@@ -18,3 +18,7 @@ Positive: hand_authored_positive_control. Negative: deliberate_teammate_proposal
 ## Finite body checks
 
 The grader checks selected original section/table rows and finite seeded body statements before Evaluation Results. It does not evaluate arbitrary semantic quality or every possible contradiction. Correct appendix rows cannot replace normal artifact content. Two additional hand-authored deliberate negatives isolate an empty body and a known contradictory body while retaining the correct appendix. These are grader controls, not observed agent outcomes.
+
+## Appendix boundary regressions
+
+Two retained hand-authored negative controls add an existing known contrary operative claim after the real results table or after an inline `Note: ## Evaluation Results` pseudo-heading. The final table must be a real standalone heading and final section; inline prose cannot truncate the operative body. These controls exercise finite parser boundaries, not arbitrary semantic evaluation or observed model behavior. Before the boundary fix, both controls incorrectly passed the bounded artifact contract for this case.
