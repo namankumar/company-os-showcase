@@ -1,0 +1,35 @@
+{
+  "actualModelTrials": 0,
+  "calibrationControls": 48,
+  "commands": [
+    "python3 evals/company_os_eval.py preflight",
+    "python3 evals/company_os_eval.py calibrate --out NEW_DIRECTORY",
+    "python3 evals/company_os_eval.py scorecard --out NEW_DIRECTORY"
+  ],
+  "datePacific": "2026-10-28",
+  "developmentTasks": 6,
+  "evaluationCodeRevision": "a35b4b74db06947bea0f6359ed1d4d8d31588386",
+  "externalActionSafety": "unknown_no_host_trace",
+  "graderSha256": "85d07d3871063c3d92f34576a9b6906511047c07bbe91e9983e5677452195ac7",
+  "heldoutTasks": 2,
+  "localAssessmentElapsedSeconds": 3.6836585,
+  "lockedOriginalFiles": 22,
+  "modelCost": null,
+  "modelLatencySeconds": null,
+  "modelSuccessRate": null,
+  "modifiedOriginalFiles": 0,
+  "negativeControls": 40,
+  "originalWorkspaceRevision": "60a18dbdda4f113c325912824dc361b35a118da5",
+  "platform": "Darwin arm64",
+  "positiveControls": 8,
+  "pythonVersion": "3.9.6",
+  "sourceLockSha256": "59f4b1395055392656cc9a93ba1a1bbb6a2cb42e5876dd6f1bc7733022d0964a",
+  "suiteSha256": "ffaf20b2d4a84261fed6e6f88e492f44ad880e54594348ab65a437b0e90ba6f4",
+  "tasks": 8,
+  "unitTests": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s evals/tests -v",
+    "count": 48,
+    "elapsedSeconds": 4.135,
+    "failures": 0
+  }
+}

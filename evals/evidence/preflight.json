@@ -1,0 +1,180 @@
+{
+  "modelExecuted": false,
+  "originalSourceHash": "d84904975b5a236f0169541bdb97da2d9e85b74bf5a012b14da01ef0130b8e9c",
+  "schemaVersion": 1,
+  "suiteId": "company-os-original-workflows-v1",
+  "tasks": [
+    {
+      "bindings": {
+        "configHash": "45cfc1336b7e0b4491254c96d138a3a291537d93fdd64a53da46c42b5943e7a9",
+        "fixtureHash": "a7fb5e88b8ce032912c5a4e0bca027b42cacbb39f23c374c3d9d638c7f9581d3",
+        "graderHash": "85d07d3871063c3d92f34576a9b6906511047c07bbe91e9983e5677452195ac7",
+        "promptHash": "44ced2d5b02f4b1f98bb1391c14a3e0f1149e49c251a47e6db0ff40db4c99345",
+        "resetHash": "d0a2f18095a8ec390bf3ea2ccba933c1d3624ac69a9d07bfed34142333f2576f",
+        "rubricHash": "b935f974ddde9c585b62fdc7b86fe626e4d3d25b9afb8eedc51503fe7a0a5bb3",
+        "sourceHash": "d84904975b5a236f0169541bdb97da2d9e85b74bf5a012b14da01ef0130b8e9c",
+        "suiteHash": "86967bdd9fd0b5cd6bd85823db47a14d09b4f677ae43612186df60dfc3f4f374",
+        "taskHash": "91e4a9f0c3f403f7b942a82e0006ab2cc9894f1d625f08de39bafdaa6ac79ca4",
+        "toolHash": "0977bde9b768aff5e6d21c0609d1a543c80bbc9ff8aadcc87555a9039053d717"
+      },
+      "dependencyGaps": [
+        ".claude/skills/utils/voice.md",
+        ".claude/skills/utils/sources.md"
+      ],
+      "hostReadiness": "not_reached",
+      "skill": ".claude/skills/status/SKILL.md",
+      "split": "development",
+      "taskId": "source-conflict-status"
+    },
+    {
+      "bindings": {
+        "configHash": "45cfc1336b7e0b4491254c96d138a3a291537d93fdd64a53da46c42b5943e7a9",
+        "fixtureHash": "810f55713b6a3397f29c850499187bf81135155e5b519e2c26b722f657c3d044",
+        "graderHash": "85d07d3871063c3d92f34576a9b6906511047c07bbe91e9983e5677452195ac7",
+        "promptHash": "d0e4be265675727b1b0fcd3b84e589174b36f19a763e4776ef023a978488abd4",
+        "resetHash": "5225a77ec008c023b0de9890d8aee3c9bdfbf537c5c5f315fc4ffc9862a1a26d",
+        "rubricHash": "46a9f6711e10f25b1ab1a1650a78686f7dd3a38aa130cc5fa554ad46f6f94c7d",
+        "sourceHash": "d84904975b5a236f0169541bdb97da2d9e85b74bf5a012b14da01ef0130b8e9c",
+        "suiteHash": "86967bdd9fd0b5cd6bd85823db47a14d09b4f677ae43612186df60dfc3f4f374",
+        "taskHash": "b1da8e43abfede7de8fd376e72dafa34385c7475c953c74e73431a6bf7001cbe",
+        "toolHash": "0977bde9b768aff5e6d21c0609d1a543c80bbc9ff8aadcc87555a9039053d717"
+      },
+      "dependencyGaps": [
+        ".claude/skills/utils/voice.md"
+      ],
+      "hostReadiness": "not_reached",
+      "skill": ".claude/skills/prd/SKILL.md",
+      "split": "development",
+      "taskId": "resumed-accepted-correction"
+    },
+    {
+      "bindings": {
+        "configHash": "45cfc1336b7e0b4491254c96d138a3a291537d93fdd64a53da46c42b5943e7a9",
+        "fixtureHash": "5481116ad67051f8912c01af9fdd60c859899beddd587c9268b75a9fba73a72a",
+        "graderHash": "85d07d3871063c3d92f34576a9b6906511047c07bbe91e9983e5677452195ac7",
+        "promptHash": "140d80e09bdc1a41d8d199ddd6e1cdd024083b5dfa1753a4db82e88124c50d80",
+        "resetHash": "863187bfbb6e2e665e6a71a7b7435f48eabf62064793530535d7c993e16ba16f",
+        "rubricHash": "0d2d008edd72037603492888eee20e336cd4e6f24b3f57ec4148b3bfa4acc471",
+        "sourceHash": "d84904975b5a236f0169541bdb97da2d9e85b74bf5a012b14da01ef0130b8e9c",
+        "suiteHash": "86967bdd9fd0b5cd6bd85823db47a14d09b4f677ae43612186df60dfc3f4f374",
+        "taskHash": "8111333bb94f31e1bc03fa085b1040bc6fb3340cfe171b2d246d9733e2be8d99",
+        "toolHash": "0977bde9b768aff5e6d21c0609d1a543c80bbc9ff8aadcc87555a9039053d717"
+      },
+      "dependencyGaps": [
+        ".claude/skills/utils/voice.md"
+      ],
+      "hostReadiness": "not_reached",
+      "skill": ".claude/skills/shape/SKILL.md",
+      "split": "development",
+      "taskId": "proposal-vs-approval-shape"
+    },
+    {
+      "bindings": {
+        "configHash": "45cfc1336b7e0b4491254c96d138a3a291537d93fdd64a53da46c42b5943e7a9",
+        "fixtureHash": "778bc39302eabc3b598e55d1ca4c3e195491b9b92535dd34a5aa847c4e4af5b2",
+        "graderHash": "85d07d3871063c3d92f34576a9b6906511047c07bbe91e9983e5677452195ac7",
+        "promptHash": "a911a3747257b9e4031305d8ea178155923732b6cb43023d43491bc1a44e7241",
+        "resetHash": "c73733a305c17cf5e2a2602551ede989a5a5850196cdd8c1b5e445db6e839115",
+        "rubricHash": "943e9f288e523165997ff693b1575fe8393fd73acb48d9c4cb93c3720ca16b12",
+        "sourceHash": "d84904975b5a236f0169541bdb97da2d9e85b74bf5a012b14da01ef0130b8e9c",
+        "suiteHash": "86967bdd9fd0b5cd6bd85823db47a14d09b4f677ae43612186df60dfc3f4f374",
+        "taskHash": "824df78b298483b9d03e65e803c8007c135ec1267fe5754b95354ad73071bd4d",
+        "toolHash": "0977bde9b768aff5e6d21c0609d1a543c80bbc9ff8aadcc87555a9039053d717"
+      },
+      "dependencyGaps": [
+        ".claude/skills/utils/voice.md",
+        ".claude/skills/utils/sources.md"
+      ],
+      "hostReadiness": "not_reached",
+      "skill": ".claude/skills/status/SKILL.md",
+      "split": "development",
+      "taskId": "unavailable-source-recovery"
+    },
+    {
+      "bindings": {
+        "configHash": "45cfc1336b7e0b4491254c96d138a3a291537d93fdd64a53da46c42b5943e7a9",
+        "fixtureHash": "9d5f7a6112c0d5a5c22f567babaf7eb1d7e97d425869050bdc612d026f1f340c",
+        "graderHash": "85d07d3871063c3d92f34576a9b6906511047c07bbe91e9983e5677452195ac7",
+        "promptHash": "708b1dd576f7ca311fdd1c0c34411b8ff64ad8a88f928ddfa0fd25af0b04c662",
+        "resetHash": "4d4bf7dfec72480bed5fe03c55705ed0501fb843567e8dfa678f1d5217940785",
+        "rubricHash": "366b9a61441c4a07eb7839899caa54df05e1d807357b0ebf0cec5c38f756ff56",
+        "sourceHash": "d84904975b5a236f0169541bdb97da2d9e85b74bf5a012b14da01ef0130b8e9c",
+        "suiteHash": "86967bdd9fd0b5cd6bd85823db47a14d09b4f677ae43612186df60dfc3f4f374",
+        "taskHash": "6169122660025ab511c0837f6069d0e855e684ad87c1b3ed7305b3545ba7b7e9",
+        "toolHash": "0977bde9b768aff5e6d21c0609d1a543c80bbc9ff8aadcc87555a9039053d717"
+      },
+      "dependencyGaps": [
+        ".claude/skills/utils/voice.md"
+      ],
+      "hostReadiness": "not_reached",
+      "skill": ".claude/skills/prd/SKILL.md",
+      "split": "development",
+      "taskId": "completion-evidence-gap"
+    },
+    {
+      "bindings": {
+        "configHash": "45cfc1336b7e0b4491254c96d138a3a291537d93fdd64a53da46c42b5943e7a9",
+        "fixtureHash": "af7c135e7f2dae40e5dfe9c3199f1daaf6e8637f0c4947a13212db6dc577ea05",
+        "graderHash": "85d07d3871063c3d92f34576a9b6906511047c07bbe91e9983e5677452195ac7",
+        "promptHash": "9f88383d153668b0ef4dc60cdbfc8a268138b928811404d25d36b9d14b5ecc51",
+        "resetHash": "c097a209a4981f19c26e1a8bb2d74baf6e4383881dcff839dc9cb2ebaa755692",
+        "rubricHash": "525db51f49088149e7638dbe62e7a5257ecc57878cc5c6f8f7796450e52cef51",
+        "sourceHash": "d84904975b5a236f0169541bdb97da2d9e85b74bf5a012b14da01ef0130b8e9c",
+        "suiteHash": "86967bdd9fd0b5cd6bd85823db47a14d09b4f677ae43612186df60dfc3f4f374",
+        "taskHash": "4ab27e8db63a02773236373f5a69b4eb543766a8d93bfef91cdc9299d38ae528",
+        "toolHash": "0977bde9b768aff5e6d21c0609d1a543c80bbc9ff8aadcc87555a9039053d717"
+      },
+      "dependencyGaps": [
+        ".claude/skills/utils/voice.md",
+        ".claude/skills/utils/sources.md"
+      ],
+      "hostReadiness": "not_reached",
+      "skill": ".claude/skills/status/SKILL.md",
+      "split": "development",
+      "taskId": "instruction-in-source-authority"
+    },
+    {
+      "bindings": {
+        "configHash": "45cfc1336b7e0b4491254c96d138a3a291537d93fdd64a53da46c42b5943e7a9",
+        "fixtureHash": "79a3490d4aafaca29c98cea40c4f17365635fdeadb3d75c8da3488f0673e6655",
+        "graderHash": "85d07d3871063c3d92f34576a9b6906511047c07bbe91e9983e5677452195ac7",
+        "promptHash": "4aaa118fa308afc3df7c74bb3f7519a00ec5b556c28639340acbd9688bd45e07",
+        "resetHash": "a8eb200f72aaab60552c3f79cb6fc9e0bee58b3864b89d0bd8b9d7bc982b28e9",
+        "rubricHash": "163c22df2e0775017039ceb1bb7c2d2fed796fc959d03091bab2b609a0e42123",
+        "sourceHash": "d84904975b5a236f0169541bdb97da2d9e85b74bf5a012b14da01ef0130b8e9c",
+        "suiteHash": "86967bdd9fd0b5cd6bd85823db47a14d09b4f677ae43612186df60dfc3f4f374",
+        "taskHash": "1efa8adb840beeac2a1bcee3b70bbe9a63f73f5895584f934c3a4950df7fbfbe",
+        "toolHash": "0977bde9b768aff5e6d21c0609d1a543c80bbc9ff8aadcc87555a9039053d717"
+      },
+      "dependencyGaps": [
+        ".claude/skills/utils/voice.md",
+        ".claude/skills/utils/sources.md"
+      ],
+      "hostReadiness": "not_reached",
+      "skill": ".claude/skills/status/SKILL.md",
+      "split": "heldout",
+      "taskId": "heldout-owner-dependency"
+    },
+    {
+      "bindings": {
+        "configHash": "45cfc1336b7e0b4491254c96d138a3a291537d93fdd64a53da46c42b5943e7a9",
+        "fixtureHash": "b2ea20ca401aa1039b5e68cb8af16e9975bfc62130d4b372d9b1b984378e846a",
+        "graderHash": "85d07d3871063c3d92f34576a9b6906511047c07bbe91e9983e5677452195ac7",
+        "promptHash": "e9934e80fd146ab27457af56dab1f623496422e64be3e6ff9ea75b73e5573bf6",
+        "resetHash": "bc7e25db58f9ccc4dd93be851f107d2f569fa0df8dc9298219e383ae88b36d75",
+        "rubricHash": "320e6ba29dd1707c81a5dc053e66b25795919d42eba3aa4b7da8078ad23c5d5e",
+        "sourceHash": "d84904975b5a236f0169541bdb97da2d9e85b74bf5a012b14da01ef0130b8e9c",
+        "suiteHash": "86967bdd9fd0b5cd6bd85823db47a14d09b4f677ae43612186df60dfc3f4f374",
+        "taskHash": "6283fa681605ef9c1bbd2a8cdc97d98b1a76e288e9fe4f7c162dff66e45b31ad",
+        "toolHash": "0977bde9b768aff5e6d21c0609d1a543c80bbc9ff8aadcc87555a9039053d717"
+      },
+      "dependencyGaps": [
+        ".claude/skills/utils/voice.md"
+      ],
+      "hostReadiness": "not_reached",
+      "skill": ".claude/skills/strategy/SKILL.md",
+      "split": "heldout",
+      "taskId": "heldout-strategy-unsupported-claims"
+    }
+  ]
+}

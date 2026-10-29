@@ -1,0 +1,53 @@
+test_actual_engine_calibration_rejects_deliberate_negative_controls (test_cases.CaseIntegrityTests) ... ok
+test_actual_suite_retains_both_appendix_boundary_attacks_per_case (test_cases.CaseIntegrityTests) ... ok
+test_clean_synthetic_fixture_content (test_cases.CaseIntegrityTests) ... ok
+test_controls_are_outside_workspace_with_one_intentional_claim_failure (test_cases.CaseIntegrityTests) ... ok
+test_eight_distinct_original_skill_tasks_and_partition (test_cases.CaseIntegrityTests) ... ok
+test_every_case_has_empty_and_contradictory_body_regression_controls (test_cases.CaseIntegrityTests) ... ok
+test_explicit_obligations_remain_in_rubric (test_cases.CaseIntegrityTests) ... ok
+test_finite_source_references_have_real_seeded_records (test_cases.CaseIntegrityTests) ... ok
+test_fixed_original_source_bytes (test_cases.CaseIntegrityTests) ... ok
+test_fixture_paths_cannot_replace_original_skills_or_leak_controls (test_cases.CaseIntegrityTests) ... ok
+test_missing_dependencies_are_disclosed_and_never_synthesized (test_cases.CaseIntegrityTests) ... ok
+test_resumption_contains_prior_wrong_copy_and_explicit_latest_correction (test_cases.CaseIntegrityTests) ... ok
+test_shape_control_honors_unresolved_original_checkpoint (test_cases.CaseIntegrityTests) ... ok
+test_baseline_candidate_reset_equal_and_comparison_no_uplift (test_engine.EngineTest) ... ok
+test_body_contradiction_cannot_launder_perfect_appendix (test_engine.EngineTest) ... ok
+test_changed_fixture_or_rubric_invalidates_bound_run (test_engine.EngineTest) ... ok
+test_complete_source_lock_detects_unpinned_original (test_engine.EngineTest) ... ok
+test_controls_outside_workspace_and_not_model_trials (test_engine.EngineTest) ... ok
+test_duplicate_and_invalid_runs_kept_in_denominator (test_engine.EngineTest) ... ok
+test_duplicate_json_keys_and_file_bounds_refused (test_engine.EngineTest) ... ok
+test_fenced_quoted_or_commented_evidence_does_not_count (test_engine.EngineTest) ... ok
+test_fixture_cannot_replace_original (test_engine.EngineTest) ... ok
+test_fixture_context_overlay_preserves_actual_original (test_engine.EngineTest) ... ok
+test_fixture_text_never_executes (test_engine.EngineTest) ... ok
+test_forbidden_claim_detected_case_insensitively (test_engine.EngineTest) ... ok
+test_harmless_inline_marker_remains_normal_body_text (test_engine.EngineTest) ... ok
+test_hidden_heading_cannot_truncate_live_forbidden_body_scope (test_engine.EngineTest) ... ok
+test_inline_results_marker_cannot_truncate_forbidden_body_scope (test_engine.EngineTest) ... ok
+test_known_good_and_broken_are_classified_independently (test_engine.EngineTest) ... ok
+test_manifest_tamper_and_unknown_fields_refused (test_engine.EngineTest) ... ok
+test_missing_dependency_and_model_metrics_stay_honest (test_engine.EngineTest) ... ok
+test_new_directory_safety_refuses_existing_even_empty (test_engine.EngineTest) ... ok
+test_original_hash_change_refused_before_prepare (test_engine.EngineTest) ... ok
+test_original_section_table_row_is_independent_and_unique (test_engine.EngineTest) ... ok
+test_positive_false_negative_fails_calibration (test_engine.EngineTest) ... ok
+test_prepared_without_artifact_is_not_reached (test_engine.EngineTest) ... ok
+test_protected_input_change_and_extra_write_fail (test_engine.EngineTest) ... ok
+test_report_and_control_outputs_cannot_modify_source_or_fixtures (test_engine.EngineTest) ... ok
+test_results_appendix_must_be_final_section (test_engine.EngineTest) ... ok
+test_resume_artifact_bound_at_reset_but_editable (test_engine.EngineTest) ... ok
+test_scorecard_pass_to_missing_artifact_is_lost_result (test_engine.EngineTest) ... ok
+test_scorecard_retains_unmatched_trial_identities (test_engine.EngineTest) ... ok
+test_symlink_fixture_and_run_artifact_refused (test_engine.EngineTest) ... ok
+test_symlink_output_ancestor_refused (test_engine.EngineTest) ... ok
+test_traversal_paths_and_backslashes_refused (test_engine.EngineTest) ... ok
+test_unknown_or_duplicate_rows_refs_fail (test_engine.EngineTest) ... ok
+test_unknown_schema_fields_and_checks_refused (test_engine.EngineTest) ... ok
+test_unrun_scorecard_all_ids_arms_zero_null (test_engine.EngineTest) ... ok
+
+----------------------------------------------------------------------
+Ran 48 tests in 4.135s
+
+OK

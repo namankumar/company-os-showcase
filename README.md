@@ -59,6 +59,16 @@ flowchart LR
 
 The workflow is intentionally file-first: durable context and produced documents are inspectable and portable. Skill instructions guide the host; they do not enforce permissions, authenticate a user, prove source freshness, or authorize effects. Those controls belong to the configured host and the human operator.
 
+## Evaluate the original workflows
+
+The [evaluation package](evals/README.md) prepares isolated synthetic company workspaces and grades finite source-linked facts in artifacts produced under the original status, shaping, PRD and strategy instructions. It includes adversarial grader tests, retained failure controls, source locks and an honest [comparison report](evals/COMPARISON.md).
+
+```sh
+python3 -m unittest discover -s evals/tests -v
+```
+
+The evaluation CLI uses Python 3.9+ and the standard library. It makes no model or connector calls. Calibration measures the grader; model task success, cost, latency and business impact remain unmeasured. Missing original companion instructions remain disclosed. No original workflow was changed to improve a score.
+
 ## Provenance
 
 This is a public-safe export of original Company OS templates and skills. The export preserves original files exactly when they contain no private operating data. It does not reproduce live source configuration, cache contents, company records, or application prototypes.

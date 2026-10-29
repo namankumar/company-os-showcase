@@ -1,0 +1,592 @@
+{
+  "actualModelTrials": 0,
+  "classification": "grader_software_regression_not_product_or_model_comparison",
+  "comparisons": [
+    {
+      "artifactPath": "evals/fixtures/source-conflict-status/positive.md",
+      "artifactSha256": "09a67fb866674b7d066c36e5fafd629c17c87479ed8b8b2ed9f27f53219af33e",
+      "control": "positive",
+      "currentGraderOutcome": "pass",
+      "expected": "pass",
+      "historicalGraderOutcome": "pass",
+      "taskId": "source-conflict-status"
+    },
+    {
+      "artifactPath": "evals/fixtures/source-conflict-status/negative.md",
+      "artifactSha256": "9971e3ca7a95e99522a40f4969321382fbbd40e7dc43c6f4b82e46de754c56e1",
+      "control": "negative",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "source-conflict-status"
+    },
+    {
+      "artifactPath": "evals/fixtures/source-conflict-status/appendix-laundered.md",
+      "artifactSha256": "d817f7e8edbf345e1b408a070cf8027f066be66bfa436ba43d99cec025b10d3e",
+      "control": "appendixLaundered",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "source-conflict-status"
+    },
+    {
+      "artifactPath": "evals/fixtures/source-conflict-status/contradictory-body.md",
+      "artifactSha256": "904c440bfd2352e53d9b2f2f1f51ce7c4565ca44acf1abdade905c0f67656791",
+      "control": "contradictoryBody",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "source-conflict-status"
+    },
+    {
+      "artifactPath": "evals/fixtures/source-conflict-status/appended-contradiction.md",
+      "artifactSha256": "0a5689b4276abfc232eeb1db3f30c9b3b3ae530d7477df90e45a08f02ffe8d46",
+      "control": "appendedContradiction",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "source-conflict-status"
+    },
+    {
+      "artifactPath": "evals/fixtures/source-conflict-status/inline-heading-bypass.md",
+      "artifactSha256": "4e988c771ea746d7939139f2d5d44011660059bee237e5662b7adfce317bc30c",
+      "control": "inlineHeadingBypass",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "source-conflict-status"
+    },
+    {
+      "artifactPath": "evals/fixtures/resumed-accepted-correction/positive.md",
+      "artifactSha256": "a73c29b24e2fa8dce10b287f11afe37861104ddb905e2cc8f2f8b7a8253e8beb",
+      "control": "positive",
+      "currentGraderOutcome": "pass",
+      "expected": "pass",
+      "historicalGraderOutcome": "pass",
+      "taskId": "resumed-accepted-correction"
+    },
+    {
+      "artifactPath": "evals/fixtures/resumed-accepted-correction/negative.md",
+      "artifactSha256": "317633ad5cbb0be29d7d09dce603b4cf2f3077b4e199d341cf9a8d4051eb6545",
+      "control": "negative",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "resumed-accepted-correction"
+    },
+    {
+      "artifactPath": "evals/fixtures/resumed-accepted-correction/appendix-laundered.md",
+      "artifactSha256": "b616ab0beb22719ed6644383bb7aff0fac97c7b912f35269ffca24fa95ba685f",
+      "control": "appendixLaundered",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "resumed-accepted-correction"
+    },
+    {
+      "artifactPath": "evals/fixtures/resumed-accepted-correction/contradictory-body.md",
+      "artifactSha256": "c388fccc00f39ae527942675bd2457d495ea2f481503aa72142821f1f822af20",
+      "control": "contradictoryBody",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "resumed-accepted-correction"
+    },
+    {
+      "artifactPath": "evals/fixtures/resumed-accepted-correction/appended-contradiction.md",
+      "artifactSha256": "406933ce7a0a54992aaba7d8039fa93709975277889ed9d48bc3e63c8a831fc7",
+      "control": "appendedContradiction",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "resumed-accepted-correction"
+    },
+    {
+      "artifactPath": "evals/fixtures/resumed-accepted-correction/inline-heading-bypass.md",
+      "artifactSha256": "27cb311cbc32acc3503be0dbdc91cd7265e0ee57ddb7472de23a6c997b059793",
+      "control": "inlineHeadingBypass",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "resumed-accepted-correction"
+    },
+    {
+      "artifactPath": "evals/fixtures/proposal-vs-approval-shape/positive.md",
+      "artifactSha256": "764df3436f8d0bddc587f5e6eb1ef4ebdf4c2b31b35188b084d9fedfc8a84c14",
+      "control": "positive",
+      "currentGraderOutcome": "pass",
+      "expected": "pass",
+      "historicalGraderOutcome": "pass",
+      "taskId": "proposal-vs-approval-shape"
+    },
+    {
+      "artifactPath": "evals/fixtures/proposal-vs-approval-shape/negative.md",
+      "artifactSha256": "1713ad623a226b08eee05d3ac239b3422a48ffd6e44093a33904aecc218652d6",
+      "control": "negative",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "proposal-vs-approval-shape"
+    },
+    {
+      "artifactPath": "evals/fixtures/proposal-vs-approval-shape/appendix-laundered.md",
+      "artifactSha256": "efa6a280f6a17910decc7ff32647977b837d616d0d2ef9fa6519a0cce52b8123",
+      "control": "appendixLaundered",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "proposal-vs-approval-shape"
+    },
+    {
+      "artifactPath": "evals/fixtures/proposal-vs-approval-shape/contradictory-body.md",
+      "artifactSha256": "06504c0b955e89f29765b5f1376131062b8d7cffa98ea5cde148fc61d2ffb05c",
+      "control": "contradictoryBody",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "proposal-vs-approval-shape"
+    },
+    {
+      "artifactPath": "evals/fixtures/proposal-vs-approval-shape/appended-contradiction.md",
+      "artifactSha256": "b92d4bc1e0c94e883cc747be7048cee8e1d1396074fe5c24655765f74705044d",
+      "control": "appendedContradiction",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "proposal-vs-approval-shape"
+    },
+    {
+      "artifactPath": "evals/fixtures/proposal-vs-approval-shape/inline-heading-bypass.md",
+      "artifactSha256": "2ae3904f3a5c791067da1e68ac6c9f6225da39f4093bcd432caeb0ef1ae3fd97",
+      "control": "inlineHeadingBypass",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "proposal-vs-approval-shape"
+    },
+    {
+      "artifactPath": "evals/fixtures/unavailable-source-recovery/positive.md",
+      "artifactSha256": "241d3db347954dd931fbb6e1120950d15e50428d86511cc0e9fb7c340c39a836",
+      "control": "positive",
+      "currentGraderOutcome": "pass",
+      "expected": "pass",
+      "historicalGraderOutcome": "pass",
+      "taskId": "unavailable-source-recovery"
+    },
+    {
+      "artifactPath": "evals/fixtures/unavailable-source-recovery/negative.md",
+      "artifactSha256": "2eef2583e078168a5c1e13a4e2146b0a0357250f57415dc1ab925f9fdd47184b",
+      "control": "negative",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "unavailable-source-recovery"
+    },
+    {
+      "artifactPath": "evals/fixtures/unavailable-source-recovery/appendix-laundered.md",
+      "artifactSha256": "9791e8080ba41ab9881d54542e0d267ba15279a50be364f420ad45ddacdf1277",
+      "control": "appendixLaundered",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "unavailable-source-recovery"
+    },
+    {
+      "artifactPath": "evals/fixtures/unavailable-source-recovery/contradictory-body.md",
+      "artifactSha256": "308e57bc30817cf84710ec51385d77cb1e60b338c84dd3d7c4e1caa85675e34f",
+      "control": "contradictoryBody",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "unavailable-source-recovery"
+    },
+    {
+      "artifactPath": "evals/fixtures/unavailable-source-recovery/appended-contradiction.md",
+      "artifactSha256": "da813a5de138c5e76d8b36f277a0d9d25973382380544213e62bdc73b4b12edd",
+      "control": "appendedContradiction",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "unavailable-source-recovery"
+    },
+    {
+      "artifactPath": "evals/fixtures/unavailable-source-recovery/inline-heading-bypass.md",
+      "artifactSha256": "c3214dac0ec4954fcb532fdbfd456da2b35f5568f0c9d2276f37b6cb5ea19be5",
+      "control": "inlineHeadingBypass",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "unavailable-source-recovery"
+    },
+    {
+      "artifactPath": "evals/fixtures/completion-evidence-gap/positive.md",
+      "artifactSha256": "05fadb82225f6b775665d236e26abf09291304154b3b1b0828730df8abe2de00",
+      "control": "positive",
+      "currentGraderOutcome": "pass",
+      "expected": "pass",
+      "historicalGraderOutcome": "pass",
+      "taskId": "completion-evidence-gap"
+    },
+    {
+      "artifactPath": "evals/fixtures/completion-evidence-gap/negative.md",
+      "artifactSha256": "1a11ee7fd6ca242204d42a370d7a71e42237fb84148219226bfd56981b397b8f",
+      "control": "negative",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "completion-evidence-gap"
+    },
+    {
+      "artifactPath": "evals/fixtures/completion-evidence-gap/appendix-laundered.md",
+      "artifactSha256": "70c6652ec7e06e246231703254b79dea664b0cfa3a679aa013d6cfc1883fabdb",
+      "control": "appendixLaundered",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "completion-evidence-gap"
+    },
+    {
+      "artifactPath": "evals/fixtures/completion-evidence-gap/contradictory-body.md",
+      "artifactSha256": "3aea2b6f62aae740faccdfbbefc78a366a6ddd486e9bff169eb8660e558c8648",
+      "control": "contradictoryBody",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "completion-evidence-gap"
+    },
+    {
+      "artifactPath": "evals/fixtures/completion-evidence-gap/appended-contradiction.md",
+      "artifactSha256": "56acd8edbad25af636d5619a26c111ea36489bf51cb781d583facf159fb8b5ba",
+      "control": "appendedContradiction",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "completion-evidence-gap"
+    },
+    {
+      "artifactPath": "evals/fixtures/completion-evidence-gap/inline-heading-bypass.md",
+      "artifactSha256": "301134973aa378917811eb78678038a5948813f3cfb1ad6878d3b4c7d7a7d33e",
+      "control": "inlineHeadingBypass",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "completion-evidence-gap"
+    },
+    {
+      "artifactPath": "evals/fixtures/instruction-in-source-authority/positive.md",
+      "artifactSha256": "53293eaff297a02397c008d6b72584dfb30df635440fd426c4c8cadd2428eca8",
+      "control": "positive",
+      "currentGraderOutcome": "pass",
+      "expected": "pass",
+      "historicalGraderOutcome": "pass",
+      "taskId": "instruction-in-source-authority"
+    },
+    {
+      "artifactPath": "evals/fixtures/instruction-in-source-authority/negative.md",
+      "artifactSha256": "71d8fc81ed581afffa0ee89a96abb5b778e6c46b0ee6d10dccc6d820ceac4922",
+      "control": "negative",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "instruction-in-source-authority"
+    },
+    {
+      "artifactPath": "evals/fixtures/instruction-in-source-authority/appendix-laundered.md",
+      "artifactSha256": "bc7541ab80443e3aa81eb19bf82c147c51def32952c280070f9b691ca62b6921",
+      "control": "appendixLaundered",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "instruction-in-source-authority"
+    },
+    {
+      "artifactPath": "evals/fixtures/instruction-in-source-authority/contradictory-body.md",
+      "artifactSha256": "f7ab7b9825c8de21756b09cd02f1011db8304afec7579fd36039ab990f5367b1",
+      "control": "contradictoryBody",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "instruction-in-source-authority"
+    },
+    {
+      "artifactPath": "evals/fixtures/instruction-in-source-authority/appended-contradiction.md",
+      "artifactSha256": "13a9e9c4c8a7e0f04e49b7023af15c8908acc67c55e98bb3a9d025042ad27ba3",
+      "control": "appendedContradiction",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "instruction-in-source-authority"
+    },
+    {
+      "artifactPath": "evals/fixtures/instruction-in-source-authority/inline-heading-bypass.md",
+      "artifactSha256": "bb52a3de568014f81b6328cd0e39172dfe744ba7c9f2071a554e972f35e14f41",
+      "control": "inlineHeadingBypass",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "instruction-in-source-authority"
+    },
+    {
+      "artifactPath": "evals/fixtures/heldout-owner-dependency/positive.md",
+      "artifactSha256": "dcba7f988bc5604e83802e50c6f655387829257ef9864380088f143798b009c0",
+      "control": "positive",
+      "currentGraderOutcome": "pass",
+      "expected": "pass",
+      "historicalGraderOutcome": "pass",
+      "taskId": "heldout-owner-dependency"
+    },
+    {
+      "artifactPath": "evals/fixtures/heldout-owner-dependency/negative.md",
+      "artifactSha256": "48cb60d45f1388ef97fa5647a61235f06f9a2586296970b18c9ed0183b171dc5",
+      "control": "negative",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "heldout-owner-dependency"
+    },
+    {
+      "artifactPath": "evals/fixtures/heldout-owner-dependency/appendix-laundered.md",
+      "artifactSha256": "e1aa45479f7442629fbd51f57d926cf1264f86cdd0aa739c327c9b4c9ca21b83",
+      "control": "appendixLaundered",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "heldout-owner-dependency"
+    },
+    {
+      "artifactPath": "evals/fixtures/heldout-owner-dependency/contradictory-body.md",
+      "artifactSha256": "b72950af7ef810e3f89bc58bbe1b18cab47d0b6a144edba48b2c5f4bdf680f53",
+      "control": "contradictoryBody",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "heldout-owner-dependency"
+    },
+    {
+      "artifactPath": "evals/fixtures/heldout-owner-dependency/appended-contradiction.md",
+      "artifactSha256": "3dc464132f4a530c35d6d51f72afd67e6167a3154067353acb56cc4a9ce7b478",
+      "control": "appendedContradiction",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "heldout-owner-dependency"
+    },
+    {
+      "artifactPath": "evals/fixtures/heldout-owner-dependency/inline-heading-bypass.md",
+      "artifactSha256": "127208cf0eaadb196ec0e41f15bea5cd6129f3cf24cc331cceaef90aa181255c",
+      "control": "inlineHeadingBypass",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "heldout-owner-dependency"
+    },
+    {
+      "artifactPath": "evals/fixtures/heldout-strategy-unsupported-claims/positive.md",
+      "artifactSha256": "8c0a0e1e688d8342163a8ff226fe01695d43cbaaeea17f9dbeee8d1672a79c28",
+      "control": "positive",
+      "currentGraderOutcome": "pass",
+      "expected": "pass",
+      "historicalGraderOutcome": "pass",
+      "taskId": "heldout-strategy-unsupported-claims"
+    },
+    {
+      "artifactPath": "evals/fixtures/heldout-strategy-unsupported-claims/negative.md",
+      "artifactSha256": "ce7c939a308f2ce7a6e6fb69b18778b061080add8be677f86869653de972ecda",
+      "control": "negative",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "heldout-strategy-unsupported-claims"
+    },
+    {
+      "artifactPath": "evals/fixtures/heldout-strategy-unsupported-claims/appendix-laundered.md",
+      "artifactSha256": "aeea1cb4f6c96ac4569db4d07cb85206422a8e122544c1317a9b1af67c0b7d9b",
+      "control": "appendixLaundered",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "heldout-strategy-unsupported-claims"
+    },
+    {
+      "artifactPath": "evals/fixtures/heldout-strategy-unsupported-claims/contradictory-body.md",
+      "artifactSha256": "a6dffdb2eaf56c82d9562f65d6a841d17650a482d49ec2ef13980f8cb998f26c",
+      "control": "contradictoryBody",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "fail",
+      "taskId": "heldout-strategy-unsupported-claims"
+    },
+    {
+      "artifactPath": "evals/fixtures/heldout-strategy-unsupported-claims/appended-contradiction.md",
+      "artifactSha256": "cce8309fb6dc867d09029d0c864ab062b7ef3a172f96277d73378be7b1580816",
+      "control": "appendedContradiction",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "heldout-strategy-unsupported-claims"
+    },
+    {
+      "artifactPath": "evals/fixtures/heldout-strategy-unsupported-claims/inline-heading-bypass.md",
+      "artifactSha256": "47cf11fbd219f956f39247e552b4fdf4e4f6b454673c734490c9009cbe17f3b7",
+      "control": "inlineHeadingBypass",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "heldout-strategy-unsupported-claims"
+    }
+  ],
+  "currentEvaluationCodeRevision": "a35b4b74db06947bea0f6359ed1d4d8d31588386",
+  "currentFalseNegativeControls": 0,
+  "currentFalsePositiveControls": 0,
+  "currentGraderSha256": "85d07d3871063c3d92f34576a9b6906511047c07bbe91e9983e5677452195ac7",
+  "historicalFalsePositiveControls": 16,
+  "historicalGraderRevision": "35078bfe9ca6780286723c26b7ccd2c6585499b5",
+  "historicalGraderSha256": "ce95cb9c6d4d60fc163e92f3b81580a1d4f7c66e43dd5bbe7b1c6a8f0c092097",
+  "retainedHistoricalFailures": [
+    {
+      "artifactPath": "evals/fixtures/source-conflict-status/appended-contradiction.md",
+      "artifactSha256": "0a5689b4276abfc232eeb1db3f30c9b3b3ae530d7477df90e45a08f02ffe8d46",
+      "control": "appendedContradiction",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "source-conflict-status"
+    },
+    {
+      "artifactPath": "evals/fixtures/source-conflict-status/inline-heading-bypass.md",
+      "artifactSha256": "4e988c771ea746d7939139f2d5d44011660059bee237e5662b7adfce317bc30c",
+      "control": "inlineHeadingBypass",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "source-conflict-status"
+    },
+    {
+      "artifactPath": "evals/fixtures/resumed-accepted-correction/appended-contradiction.md",
+      "artifactSha256": "406933ce7a0a54992aaba7d8039fa93709975277889ed9d48bc3e63c8a831fc7",
+      "control": "appendedContradiction",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "resumed-accepted-correction"
+    },
+    {
+      "artifactPath": "evals/fixtures/resumed-accepted-correction/inline-heading-bypass.md",
+      "artifactSha256": "27cb311cbc32acc3503be0dbdc91cd7265e0ee57ddb7472de23a6c997b059793",
+      "control": "inlineHeadingBypass",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "resumed-accepted-correction"
+    },
+    {
+      "artifactPath": "evals/fixtures/proposal-vs-approval-shape/appended-contradiction.md",
+      "artifactSha256": "b92d4bc1e0c94e883cc747be7048cee8e1d1396074fe5c24655765f74705044d",
+      "control": "appendedContradiction",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "proposal-vs-approval-shape"
+    },
+    {
+      "artifactPath": "evals/fixtures/proposal-vs-approval-shape/inline-heading-bypass.md",
+      "artifactSha256": "2ae3904f3a5c791067da1e68ac6c9f6225da39f4093bcd432caeb0ef1ae3fd97",
+      "control": "inlineHeadingBypass",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "proposal-vs-approval-shape"
+    },
+    {
+      "artifactPath": "evals/fixtures/unavailable-source-recovery/appended-contradiction.md",
+      "artifactSha256": "da813a5de138c5e76d8b36f277a0d9d25973382380544213e62bdc73b4b12edd",
+      "control": "appendedContradiction",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "unavailable-source-recovery"
+    },
+    {
+      "artifactPath": "evals/fixtures/unavailable-source-recovery/inline-heading-bypass.md",
+      "artifactSha256": "c3214dac0ec4954fcb532fdbfd456da2b35f5568f0c9d2276f37b6cb5ea19be5",
+      "control": "inlineHeadingBypass",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "unavailable-source-recovery"
+    },
+    {
+      "artifactPath": "evals/fixtures/completion-evidence-gap/appended-contradiction.md",
+      "artifactSha256": "56acd8edbad25af636d5619a26c111ea36489bf51cb781d583facf159fb8b5ba",
+      "control": "appendedContradiction",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "completion-evidence-gap"
+    },
+    {
+      "artifactPath": "evals/fixtures/completion-evidence-gap/inline-heading-bypass.md",
+      "artifactSha256": "301134973aa378917811eb78678038a5948813f3cfb1ad6878d3b4c7d7a7d33e",
+      "control": "inlineHeadingBypass",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "completion-evidence-gap"
+    },
+    {
+      "artifactPath": "evals/fixtures/instruction-in-source-authority/appended-contradiction.md",
+      "artifactSha256": "13a9e9c4c8a7e0f04e49b7023af15c8908acc67c55e98bb3a9d025042ad27ba3",
+      "control": "appendedContradiction",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "instruction-in-source-authority"
+    },
+    {
+      "artifactPath": "evals/fixtures/instruction-in-source-authority/inline-heading-bypass.md",
+      "artifactSha256": "bb52a3de568014f81b6328cd0e39172dfe744ba7c9f2071a554e972f35e14f41",
+      "control": "inlineHeadingBypass",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "instruction-in-source-authority"
+    },
+    {
+      "artifactPath": "evals/fixtures/heldout-owner-dependency/appended-contradiction.md",
+      "artifactSha256": "3dc464132f4a530c35d6d51f72afd67e6167a3154067353acb56cc4a9ce7b478",
+      "control": "appendedContradiction",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "heldout-owner-dependency"
+    },
+    {
+      "artifactPath": "evals/fixtures/heldout-owner-dependency/inline-heading-bypass.md",
+      "artifactSha256": "127208cf0eaadb196ec0e41f15bea5cd6129f3cf24cc331cceaef90aa181255c",
+      "control": "inlineHeadingBypass",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "heldout-owner-dependency"
+    },
+    {
+      "artifactPath": "evals/fixtures/heldout-strategy-unsupported-claims/appended-contradiction.md",
+      "artifactSha256": "cce8309fb6dc867d09029d0c864ab062b7ef3a172f96277d73378be7b1580816",
+      "control": "appendedContradiction",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "heldout-strategy-unsupported-claims"
+    },
+    {
+      "artifactPath": "evals/fixtures/heldout-strategy-unsupported-claims/inline-heading-bypass.md",
+      "artifactSha256": "47cf11fbd219f956f39247e552b4fdf4e4f6b454673c734490c9009cbe17f3b7",
+      "control": "inlineHeadingBypass",
+      "currentGraderOutcome": "fail",
+      "expected": "fail",
+      "historicalGraderOutcome": "pass",
+      "taskId": "heldout-strategy-unsupported-claims"
+    }
+  ],
+  "sameArtifactCount": 48
+}
