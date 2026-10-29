@@ -1,73 +1,64 @@
-# Company OS, a source-linked operating workspace
+# Company OS
 
-Most company context lives in meetings, metrics, decisions, and half-finished documents. The practical problem is not producing another summary. It is carrying the right context into the next decision, showing where each claim came from, and leaving a durable record of what changed.
+Company OS is a file-first skills workspace for running recurring company work with an existing agent host. The exported skills are original authored workflow instructions from the private Company OS workspace, retained byte-for-byte where safe. They turn company context, source snapshots, and prior documents into repeatable briefs, strategy work, research, product documents, roadmaps, and communications.
 
-This is a small, fictional workspace that demonstrates that operating pattern. It contains:
+This repository is the workspace layer, not a hosted autonomous-company product. It contains no model runtime, connector credentials, scheduler, database, production integration, or background agent. A configured Codex or Claude Code host reads these files and performs only the tools and actions you explicitly make available.
 
-- stable context about a sample business;
-- two primary-source notes;
-- a host-run briefing skill;
-- a worked brief and proposed decision with line-level source links; and
-- a deterministic checker for those links.
+## What is included
 
-It is designed for an existing Codex or Claude Code host. It has no model backend, connector, scheduler, or autonomy layer. The model is asked to read and write local files; the source-link checker only verifies that cited local paths and line ranges exist. It does not evaluate reasoning or make the brief trustworthy on its own.
+- **Operating context templates:** current context, goals, narratives, cadences, artifacts, tasks, and document folders.
+- **Original skill instructions:** a curated selection covering status, strategy, shaping, PRDs, roadmaps, market research, and essays.
+- **Host-facing orchestration:** original status and roadmap workflows demonstrate source-linked operating artifacts without exposing the private source registry that powered them.
+- **Writing utilities:** the original document-writing and Google Docs formatting instructions.
 
-## What the example shows
+The file inventory and SHA-256 hashes are in [EXPORT-MANIFEST.md](EXPORT-MANIFEST.md). Files retained unchanged are copied byte-for-byte. The workspace adapter and a small set of workflow instructions retain their original structure with documented privacy substitutions.
 
-The worked brief notices that a launch target and a repeated onboarding failure share the same constrained workflow. It keeps the evidence, the recommendation, and the decision status separate:
+## What is deliberately absent
 
-1. evidence stays in `sources/`;
-2. the brief identifies a risk and proposed follow-through;
-3. the decision log records a recommendation as **proposed**, not accepted; and
-4. a person must explicitly update the decision before it changes the workspace's operating context.
+- Private company context, real tasks, documents, people, customer information, caches, source snapshots, and credentials.
+- Host-specific source configuration, login state, and automation schedules.
+- Skills containing personal operating history, relationship records, source-specific private access instructions, or extensive client/domain examples that could not be safely exported without a rewrite.
+- Separate application prototypes. This repository is the skills workspace, not a product UI or agent runtime.
 
-That distinction is the point. The workspace makes it easier to resume a decision with its evidence; it does not grant an AI permission to decide or act.
+Some retained instructions refer to optional snapshots, meeting context, or companion skills from the original private workspace. They are intentionally absent here. Treat those references as extension points for your own private configuration, not as included functionality.
 
-## Run it with an existing host
+## Start with your own host and sources
 
-No setup beyond a local Codex or Claude Code installation is required.
+1. Replace the `{{PLACEHOLDERS}}` in `CLAUDE.md`, `context/`, and `tasks-db.md` with your own company context.
+2. Configure the tools and source access you want your host to use. Keep raw source snapshots and credentials out of version control.
+3. Start Claude Code or Codex from the repository root.
+4. Ask the host to read the workspace instructions and run the relevant skill.
 
-### Codex
-
-From this directory, start Codex and use this prompt:
-
-```text
-Read AGENTS.md, context/, sources/, and docs/. Follow .agents/skills/operating-brief/SKILL.md.
-Refresh docs/operating-brief.md without inventing facts. Preserve or add line-level source links.
-Do not send messages, change external systems, or mark a proposed decision accepted.
-```
-
-### Claude Code
-
-From this directory, start Claude Code and use the same prompt. `CLAUDE.md` points it to the equivalent skill in `.claude/skills/operating-brief/`.
+For Claude Code:
 
 ```sh
 claude
 ```
 
-The expected result is a revised local Markdown brief. Review it before accepting any recommendation.
+Then ask it to follow an included skill such as `.claude/skills/status/SKILL.md`.
 
-## Check the sample's source links
-
-```sh
-python3 scripts/check_source_links.py
-```
-
-The checker validates only that every `sources/...#Lx-Ly` reference inside `docs/` resolves to an existing local file and line range. It is deliberately deterministic and does not call a model.
-
-## Workspace map
+For Codex, start from this directory and use a direct instruction such as:
 
 ```text
-context/     Current, human-maintained orientation and decision boundaries
-sources/     Primary notes used as evidence in this sample
-docs/        Source-linked briefs and decision records
-.agents/     Codex-oriented skill instructions
-.claude/     Claude Code-oriented skill instructions
-scripts/     Deterministic source-link validation only
+Read AGENTS.md and CLAUDE.md. Read the relevant context and existing docs.
+Follow .claude/skills/status/SKILL.md to prepare a local status artifact.
+Do not send messages or make external changes unless I explicitly authorize them.
 ```
 
-See [the architecture](docs/architecture.md) and [the implementation boundary](docs/implementation-boundary.md).
+## How the workspace works
+
+```mermaid
+flowchart LR
+    A[Approved source snapshots] --> B[Host-configured refresh or review]
+    C[Context and prior docs] --> D[Original skill instructions]
+    B --> D
+    D --> E[Draft brief, plan, or decision artifact]
+    E --> F[Human review and explicit authorization]
+    F --> G[Durable context or approved external action]
+```
+
+The workflow is intentionally file-first: durable context and produced documents are inspectable and portable. Skill instructions guide the host; they do not enforce permissions, authenticate a user, prove source freshness, or authorize effects. Those controls belong to the configured host and the human operator.
 
 ## Provenance
 
-This public-safe sample was distilled from existing company-context and operating-brief workflows. It uses fresh fictional material rather than copying any private repository, source connection, client workflow, person, organization, metric, or credential.
+This is a public-safe export of original Company OS templates and skills. The export preserves original files exactly when they contain no private operating data. It does not reproduce live source configuration, cache contents, company records, or application prototypes.

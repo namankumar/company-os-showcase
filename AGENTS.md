@@ -1,20 +1,7 @@
-# Sample Company OS instructions
+# Codex adapter for this workspace
 
-This is a fictional, file-based operating workspace. It is an input to a Codex or Claude Code host, not an autonomous service.
+This repository is a file-based skills workspace. Read `CLAUDE.md`, the relevant `context/` files, prior documents in `docs/`, and the applicable `.claude/skills/*/SKILL.md` before drafting work.
 
-Before drafting or changing an operating brief:
+Treat every skill as an instruction document, not runtime authority. Do not send messages, schedule jobs, access a source, mutate an external system, or accept a decision unless the user explicitly authorizes that action and the configured host supports it.
 
-1. Read `context/company.md`, `context/priorities.md`, and `context/decision-boundaries.md`.
-2. Read the relevant original notes in `sources/`.
-3. Read existing documents in `docs/` before replacing them.
-4. Follow `.agents/skills/operating-brief/SKILL.md`.
-
-Rules:
-
-- Keep facts, inferences, recommendations, and accepted decisions visibly separate.
-- Cite factual claims with `sources/path.md#Lx-Ly` references.
-- Use `unknown` when the sources do not establish a claim.
-- Do not send messages, access external services, change customer data, schedule work, or mark a decision accepted without a direct human instruction.
-- A source link is evidence navigation, not proof that an inference is correct.
-
-`scripts/check_source_links.py` checks link shape and local existence only. It does not verify semantics, authority, freshness outside this workspace, or model quality.
+Keep facts, interpretations, recommendations, and approvals distinct. Preserve source references supplied by the user or configured source system. If evidence is missing, say so rather than inventing it.
