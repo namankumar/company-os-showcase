@@ -1,6 +1,6 @@
 # cache/
 
-Machine-generated scan data. Not your thinking — MCP outputs, digests, and feed snapshots. Treated as ephemeral: always regeneratable, never the source of truth.
+Put generated snapshots and digests here. Keep decisions and original evidence elsewhere. A cache is a dated view of a source, not the source itself.
 
 | Folder | What goes here |
 |---|---|
@@ -9,4 +9,4 @@ Machine-generated scan data. Not your thinking — MCP outputs, digests, and fee
 | `work-tracker/` | Work-item snapshots |
 | `analytics/` | Product and business measurement snapshots |
 
-**Freshness:** cache files expire. Check the `updated:` timestamp at the top of each file before trusting the data. Re-run the relevant skill to refresh.
+Check the `updated:` timestamp before using a snapshot. Refresh through the relevant skill only when your host has the source access and your permission. If it cannot refresh, report the stale data rather than implying it is current.

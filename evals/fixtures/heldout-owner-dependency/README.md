@@ -1,6 +1,6 @@
 # heldout-owner-dependency
 
-Partition: heldout. Public heldout means a reporting partition, not secret test data.
+Partition: heldout. These cases are public. The held-out label separates reporting groups; it does not mean the test data is secret.
 
 Original skill: `.claude/skills/status/SKILL.md` at `60a18dbdda4f113c325912824dc361b35a118da5`.
 
@@ -11,14 +11,14 @@ Use the original status skill unchanged. Read relevant prior documents and all l
 
 Positive: hand_authored_positive_control. Negative: deliberate_latest_proposal_over_accepted_assignment. The negative changes only the `q71-owner` extracted claim, so the grader must detect the violated obligation. Neither control is an observed agent outcome.
 
-## Missing dependency caveat
+## Missing dependencies
 
-`.claude/skills/utils/voice.md`, `.claude/skills/utils/sources.md` are absent in the public original. These files are not replaced by fixtures. Host execution requiring them is not_reached; offline artifact checks can still be calibrated.
+The public source does not include `.claude/skills/utils/voice.md` or `.claude/skills/utils/sources.md`. The fixtures do not replace them. A host task that needs them stays `not_reached`. You can still calibrate the offline document checks.
 
 ## Finite body checks
 
-The grader checks selected original section/table rows and finite seeded body statements before Evaluation Results. It does not evaluate arbitrary semantic quality or every possible contradiction. Correct appendix rows cannot replace normal artifact content. Two additional hand-authored deliberate negatives isolate an empty body and a known contradictory body while retaining the correct appendix. These are grader controls, not observed agent outcomes.
+The grader checks specific sections, table rows, and seeded statements before Evaluation Results. It cannot judge every possible contradiction or the quality of arbitrary prose. A correct appendix cannot make up for a missing or contradictory document body. Two hand-written negative controls keep the correct appendix while testing those body failures. They test the grader, not an agent.
 
 ## Appendix boundary regressions
 
-Two retained hand-authored negative controls add an existing known contrary operative claim after the real results table or after an inline `Note: ## Evaluation Results` pseudo-heading. The final table must be a real standalone heading and final section; inline prose cannot truncate the operative body. These controls exercise finite parser boundaries, not arbitrary semantic evaluation or observed model behavior. Before the boundary fix, both controls incorrectly passed the bounded artifact contract for this case.
+Two more hand-written negative controls place a known contradictory claim after the results table or after an inline `Note: ## Evaluation Results` pseudo-heading. The real results heading must stand alone and begin the final section. Text that merely mentions the heading must not hide the rest of the document from grading. Both controls passed incorrectly before the parser-boundary fix. This is a record of that bounded parser regression, not a model-behavior result.

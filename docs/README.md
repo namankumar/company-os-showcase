@@ -1,6 +1,6 @@
 # docs/
 
-What you produce. Strategy, PRDs, research, user tracking, GTM. This is institutional memory — treat existing docs as the foundation, not optional context.
+Keep the work you want to build on here: strategy, product briefs, research, launch plans, and user feedback. Read what already exists before starting another document.
 
 | Folder | What goes here |
 |---|---|

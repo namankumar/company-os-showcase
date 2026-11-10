@@ -1,8 +1,8 @@
 # Company OS workflow evaluation
 
-This evaluation package loads the original Company OS skills and controlled company files, prepares reset workspaces, and independently checks produced Markdown artifacts. It is not a company-automation runtime, model simulator or replacement set of showcase skills.
+These checks ask a narrow question: does a produced document preserve the facts, decisions, and limits in its source material? The package prepares fresh workspaces from the original skills and synthetic company files, then grades the resulting Markdown. It does not run a company or simulate a model.
 
-## Evidence layers
+## What the results can tell you
 1. Deterministic software checks: reset/binding checks and graders behave as tested.
 2. Host/model task outcomes: an actual configured host follows the original skill. No model trials were authorized or performed for this release.
 3. Operational impact: company outcomes, time saved and adoption remain unmeasured.
@@ -25,7 +25,7 @@ flowchart TD
 
 The CLI never invokes a model, follows fixture instructions, accesses connectors, starts agents, sends messages or changes Company OS behavior.
 
-## Dependency closure
+## What you need
 Offline checks need Python 3.9+ and the standard library only. No install, server, API key, model download or account is needed.
 
 Task manifests bind the original adapter, workspace instructions, skill and writing utilities. The reviewed source omits some companions:
@@ -35,7 +35,7 @@ Task manifests bind the original adapter, workspace instructions, skill and writ
 
 Synthetic context and snapshots are task data, not invented companion skills. Preflight preserves missing prerequisites as not reached instead of altering instructions. A separately authorized operator can later select a complete existing original workspace; no dependency or product update is performed here.
 
-## Reproducible commands
+## Run the local checks
 Run from the repository root after cloning. These commands make only local evaluation outputs; they never launch a model or connector.
 
 ```sh
@@ -60,7 +60,7 @@ The new directory contains `manifest.json` and `workspace/`. Inspect the manifes
 
 No host launcher or model-trace importer is included. Even an imported passing artifact does not certify a model run or absence of external effects.
 
-## Task and artifact contract
+## What each task must produce
 Cases cover source conflict, resumed correction, proposal versus approval, source/tool unavailability, completion evidence, instruction text inside source data, owner/dependency conflict and unsupported strategy claims.
 
 Each task invokes an existing original skill. The task asks for its normal local Markdown artifact plus a bounded Evaluation Results table for seeded-state checks. That exact heading must be the last section, containing only its three-column table. The independent grader reads actual bytes, evaluates finite source-linked assertions and checks protected inputs/output paths. An artifact's self-reported passed flag is not proof.

@@ -1,6 +1,6 @@
 # context/
 
-Current state of the world. Not exploration, not WIP — ground truth that Claude reads before every session.
+Keep the current working context here: targets, decisions, open questions, and how the team works. These files help an assistant start with what you already know. They still need sources and updates; putting a statement here does not make it true.
 
 | File | What goes here |
 |---|---|
@@ -12,4 +12,4 @@ Current state of the world. Not exploration, not WIP — ground truth that Claud
 | `org-dynamics.md` | How decisions get made, where tensions live, who has influence. |
 | `room/` | Group dynamics analysis. One file per group (team, investors, partners). |
 
-**Rule:** Claude reads these files before answering questions or starting research. Keep them current or the AI answers get stale.
+Read the relevant context before answering or starting research. Keep it current and distinguish decisions from proposals. The host must actually load the files; a README does not make that happen automatically.

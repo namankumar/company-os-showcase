@@ -9,16 +9,16 @@ This is a curated public-safe export of original Company OS workspace material. 
 | `AGENTS.md` | `45cbdc23e35dc84874298eb7e767bca1b0016dca6b54b91ea3867f1e504c99a1` | Public host adapter |
 | `CLAUDE.md` | `4080052457b5bb292cdc719c7744b86343792e7574b32b0326dd26117eedc85c` | Original template, minimally redacted |
 | `README.md` | `65b7b87acf591e497663b2a752905b6df9556f8fc55e68ab7194f717294307c5` | Public packaging guide |
-| `cache/README.md` | `e7d1ca33ce81ce02d2c900b20271227da9474d3001ac86dd2a2e54160b9df9a1` | Original template, minimally redacted |
-| `context/README.md` | `1d1f361704cd6c5f85f167faa92fe952de122394c37270bddb50a6d8f658cb20` | Byte-identical source export |
+| `cache/README.md` | `1234e935ac67fc5ce8ebeb5fd3334ede15ce988ce79c12d7e956c30aa7ab8bdd` | Public guide, rewritten from original template |
+| `context/README.md` | `5e6dffa3b6efafe8f5f54673c3f76c036e2922b4e81a7d904c9fe45ed97ba51c` | Public guide, rewritten from original template |
 | `context/artifacts.md` | `e44e146fb6f40deccc32a69a94e1349e2eeec2f72164b0e580b7f111bd1020c8` | Byte-identical source export |
 | `context/cadences.md` | `e3ffe24c342336647e847ff75a68a8eea59635553fb403df70d0d587cae475a1` | Byte-identical source export |
 | `context/current-context.md` | `2accd1030b4ff1cfee15daf18892edbb8cd7c9a87cca54a2d5e147b06a0878ee` | Byte-identical source export |
 | `context/narrative-map.md` | `2ce6dda35516abff396e5b15fd1e016e4f1ad19df655da1fde48bbb5a8202431` | Byte-identical source export |
 | `context/okr-status.md` | `b2ea845434f07e144868af61b74778b5bc13fce6924993e413fb9cf998b958b3` | Byte-identical source export |
-| `docs/README.md` | `30e6a0656fd1b24234571ca3f0b1bf2e66702053e56d8e48212365b5523c3b43` | Byte-identical source export |
-| `projects/README.md` | `caea003aa6911833aff296b888cda187c119d96931f1e4ca5af89549fc7a1028` | Original template, minimally redacted |
-| `sources/README.md` | `801f8e5e7047e34f86e576a3f425542f3b94f98d5f4870d4e1e236e76962dbde` | Public source-boundary guide |
+| `docs/README.md` | `0161181e70b24ccf874da61637c3ae1ee8dc1d2e6c49b4a117a93913a220e839` | Public guide, rewritten from original template |
+| `projects/README.md` | `b49e25b62c1738dfe24d3c5812bba80c11f4e2f605d6f464a53e30d98bc0a647` | Public guide, rewritten from original template |
+| `sources/README.md` | `31bbd5d8a57698f9c07e7202ca8bd1df90840011e2028a47ac9caa0e8bb0f13f` | Public guide, rewritten from original template |
 | `tasks-db.md` | `47541ddcf9e7d522487ec856bf63093b3fdd631e9f5020af6a3ea8c27a97512a` | Byte-identical source export |
 | `.claude/skills/essay/SKILL.md` | `5427274cdbae83d8ee4fab811c14c0f3d109297f3f4cb14f63c52b0a9d6cf297` | Original instruction, minimally redacted |
 | `.claude/skills/market-research/SKILL.md` | `837b1d64765bdb3facc6db32e745658fd7455ee050d295bba152d6ab727d65d2` | Original instruction, minimally redacted |

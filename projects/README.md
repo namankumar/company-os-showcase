@@ -1,6 +1,6 @@
 # projects/
 
-Personal projects. Separate from work output in `docs/`. Anything you're building, writing, or growing outside your primary job lives here.
+Use this folder for personal projects. Keep them separate from the work documents in `docs/` so an assistant can tell which context belongs to which project.
 
 Suggested structure:
 
