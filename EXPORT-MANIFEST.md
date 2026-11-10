@@ -44,7 +44,7 @@ New evaluation material is synthetic or software-verification evidence. It is no
 |---|---|
 | `.gitignore` | `919c6b90a7409550fb356cd311c47a57d2105b23d9987f885e4a323374fe9cb6` |
 | `evals/COMPARISON.md` | `22fa9068a0fe531182e9f1e53306bec7aa839797d7cfec7eed97b9444bbaef73` |
-| `evals/README.md` | `fad275520f59ec6ffbc74aa8d2512d0367dafb29ea4769adde5e3f12f6a42521` |
+| `evals/README.md` | `1be1a250576e60a288aac2b5d9f0b364005a197e124acb489c582029da2929b6` |
 | `evals/company_os_eval.py` | `85d07d3871063c3d92f34576a9b6906511047c07bbe91e9983e5677452195ac7` |
 | `evals/evidence/calibration.json` | `1ab8bbe593702ebb2f50fec2c7e770be476842601074b4a2522ccda97ead4d9c` |
 | `evals/evidence/grader-regressions.json` | `a54e7e63f2737b530a90a3f706eacbee5943bd90ba45f78c1ec8a113efe8ff40` |
@@ -53,7 +53,7 @@ New evaluation material is synthetic or software-verification evidence. It is no
 | `evals/evidence/scorecard.json` | `79b9611ba604fd07c35d94e22b79a230d64df126511eea12c18edd3fff35b57d` |
 | `evals/evidence/scorecard.md` | `086dcd670c856e8b492ec92411f9ef285ab091901ae6f621530f9a218b54aa63` |
 | `evals/evidence/unit-tests.txt` | `47f7f4e4563fddee5e233c3e6fffb94b001b1731334f14f6e074cfae212b9fcc` |
-| `evals/fixtures/completion-evidence-gap/README.md` | `ee9064e1411cba03367e8cb611205823b525f4a6ad1736ae0b32d634c8acb0e8` |
+| `evals/fixtures/completion-evidence-gap/README.md` | `43c1424579b5863238e85734dc04bc103005778450477112be19c678423b5456` |
 | `evals/fixtures/completion-evidence-gap/appended-contradiction.md` | `56acd8edbad25af636d5619a26c111ea36489bf51cb781d583facf159fb8b5ba` |
 | `evals/fixtures/completion-evidence-gap/appendix-laundered.md` | `70c6652ec7e06e246231703254b79dea664b0cfa3a679aa013d6cfc1883fabdb` |
 | `evals/fixtures/completion-evidence-gap/contradictory-body.md` | `3aea2b6f62aae740faccdfbbefc78a366a6ddd486e9bff169eb8660e558c8648` |
@@ -69,7 +69,7 @@ New evaluation material is synthetic or software-verification evidence. It is no
 | `evals/fixtures/completion-evidence-gap/workspace/docs/product/queueboard-launch-checklist.md` | `03a04bfb17533a2e6baa027de91bf144a0fc0532f3d71a67bc8c69d32ef9e7d5` |
 | `evals/fixtures/completion-evidence-gap/workspace/sources/delivery.md` | `3bddf30ecf38a7176944ee07e161dfbdafadccdb7ce51305231d0fe40ecc765c` |
 | `evals/fixtures/completion-evidence-gap/workspace/sources/test-report.md` | `0d6698ecba200e250ee7f294ab9517c120411e4508b8d064bd0a8936cca9ffdd` |
-| `evals/fixtures/heldout-owner-dependency/README.md` | `ad39a5855759200cd2c8aebb2127a38d358399570561a5e06ad37eabb2fed0a4` |
+| `evals/fixtures/heldout-owner-dependency/README.md` | `bdb38446571ec80207da7a72d618fad5c69ea3b3a44616acc368b1e43c36d873` |
 | `evals/fixtures/heldout-owner-dependency/appended-contradiction.md` | `3dc464132f4a530c35d6d51f72afd67e6167a3154067353acb56cc4a9ce7b478` |
 | `evals/fixtures/heldout-owner-dependency/appendix-laundered.md` | `e1aa45479f7442629fbd51f57d926cf1264f86cdd0aa739c327c9b4c9ca21b83` |
 | `evals/fixtures/heldout-owner-dependency/contradictory-body.md` | `b72950af7ef810e3f89bc58bbe1b18cab47d0b6a144edba48b2c5f4bdf680f53` |
@@ -86,7 +86,7 @@ New evaluation material is synthetic or software-verification evidence. It is no
 | `evals/fixtures/heldout-owner-dependency/workspace/sources/assignments.md` | `1283e512082a042946560093041998202b44429c4188f6a2d23cf118720e71be` |
 | `evals/fixtures/heldout-owner-dependency/workspace/sources/proposals.md` | `f37d192efef0cebea2660b6edab42e0d9569220e72383ab9b0e63923fdd19b19` |
 | `evals/fixtures/heldout-owner-dependency/workspace/sources/tracker.md` | `76e39b1112bfd3a587eb4f1af15f0afd8790c93618116e3b37f02f7329294d3d` |
-| `evals/fixtures/heldout-strategy-unsupported-claims/README.md` | `cf6a7625077df1359b5cb8aa21cf630c3552134a3dc491132a6249fb8afb37d5` |
+| `evals/fixtures/heldout-strategy-unsupported-claims/README.md` | `5a33f97af9c6223db2d277332804201e9d4d269d3f20b144b76f8731702558ed` |
 | `evals/fixtures/heldout-strategy-unsupported-claims/appended-contradiction.md` | `cce8309fb6dc867d09029d0c864ab062b7ef3a172f96277d73378be7b1580816` |
 | `evals/fixtures/heldout-strategy-unsupported-claims/appendix-laundered.md` | `aeea1cb4f6c96ac4569db4d07cb85206422a8e122544c1317a9b1af67c0b7d9b` |
 | `evals/fixtures/heldout-strategy-unsupported-claims/contradictory-body.md` | `a6dffdb2eaf56c82d9562f65d6a841d17650a482d49ec2ef13980f8cb998f26c` |
@@ -103,7 +103,7 @@ New evaluation material is synthetic or software-verification evidence. It is no
 | `evals/fixtures/heldout-strategy-unsupported-claims/workspace/docs/strategy/queueboard-review-strategy.md` | `0a8246726d8ac9ac726b0a47d1a1fc7ea937297eb125d7c14357ee75f8db14b7` |
 | `evals/fixtures/heldout-strategy-unsupported-claims/workspace/sources/pilot-notes.md` | `c9d692bbdf248e63f178586e65b893a5b1bd2d25b5a7424ec20b1c1bf72c3ea3` |
 | `evals/fixtures/heldout-strategy-unsupported-claims/workspace/sources/review-receipt.md` | `12cccb582ddb4acaa700d652f3b204a4b030803b651768d21d6f47b2bcf924a6` |
-| `evals/fixtures/instruction-in-source-authority/README.md` | `47a4d93043920450e9f3ae0f5a5aa308192af0a950938f35376e22f2b6824f8b` |
+| `evals/fixtures/instruction-in-source-authority/README.md` | `cb036a89840f0f7e5be2757b6fb0d3b52945cc0cbc386d4a4203a8abb56e1411` |
 | `evals/fixtures/instruction-in-source-authority/appended-contradiction.md` | `13a9e9c4c8a7e0f04e49b7023af15c8908acc67c55e98bb3a9d025042ad27ba3` |
 | `evals/fixtures/instruction-in-source-authority/appendix-laundered.md` | `bc7541ab80443e3aa81eb19bf82c147c51def32952c280070f9b691ca62b6921` |
 | `evals/fixtures/instruction-in-source-authority/contradictory-body.md` | `f7ab7b9825c8de21756b09cd02f1011db8304afec7579fd36039ab990f5367b1` |
@@ -119,7 +119,7 @@ New evaluation material is synthetic or software-verification evidence. It is no
 | `evals/fixtures/instruction-in-source-authority/workspace/context/room/review.md` | `b7cc21966908dfb6614fb4a4c94c0ba5dfcbafb79fdd274ebc7059924b6b5954` |
 | `evals/fixtures/instruction-in-source-authority/workspace/sources/discussion.md` | `24b827a153051062a93dbdea1fda53e0c382ef90dd9ca886bea5db5810f7e823` |
 | `evals/fixtures/instruction-in-source-authority/workspace/sources/tracker.md` | `ad8d9b9d8fb4ef7013498d92870bf915adbf361bf02c64164a3f635d364b80e9` |
-| `evals/fixtures/proposal-vs-approval-shape/README.md` | `654279d1f5f12c0ac0b5c0e1eb3c956bfd7e98111e057087f7c69d4643bee82a` |
+| `evals/fixtures/proposal-vs-approval-shape/README.md` | `7bc4932d78a6f372a45ec53d114ecb979ca65de165c22bb04544d1b3e4934eff` |
 | `evals/fixtures/proposal-vs-approval-shape/appended-contradiction.md` | `b92d4bc1e0c94e883cc747be7048cee8e1d1396074fe5c24655765f74705044d` |
 | `evals/fixtures/proposal-vs-approval-shape/appendix-laundered.md` | `efa6a280f6a17910decc7ff32647977b837d616d0d2ef9fa6519a0cce52b8123` |
 | `evals/fixtures/proposal-vs-approval-shape/contradictory-body.md` | `06504c0b955e89f29765b5f1376131062b8d7cffa98ea5cde148fc61d2ffb05c` |
@@ -135,7 +135,7 @@ New evaluation material is synthetic or software-verification evidence. It is no
 | `evals/fixtures/proposal-vs-approval-shape/workspace/docs/feedback/handoff-observation.md` | `20edeabff545e69f03cfe6ac748e9d9f6f7a1af340317aa949ccea5289be45f9` |
 | `evals/fixtures/proposal-vs-approval-shape/workspace/docs/product/shape-prior-reminder.md` | `68434a54073aebffe2a4831c447b31e5c91a7db4b74c2839e86fb51aa5ac9d19` |
 | `evals/fixtures/proposal-vs-approval-shape/workspace/sources/idea.md` | `9602d179acfd28a4e123306d1f1eacffbcd24d11c3f51c2216c96b9313ae9f33` |
-| `evals/fixtures/resumed-accepted-correction/README.md` | `745339e7050efb1df844233d45e7eff0076b951c7d1a9ba815e6793007b49135` |
+| `evals/fixtures/resumed-accepted-correction/README.md` | `ed633c9f6fd057f1c158cbc44bd58abf9b4cc99d4fe603f071b58d56261d8a95` |
 | `evals/fixtures/resumed-accepted-correction/appended-contradiction.md` | `406933ce7a0a54992aaba7d8039fa93709975277889ed9d48bc3e63c8a831fc7` |
 | `evals/fixtures/resumed-accepted-correction/appendix-laundered.md` | `b616ab0beb22719ed6644383bb7aff0fac97c7b912f35269ffca24fa95ba685f` |
 | `evals/fixtures/resumed-accepted-correction/contradictory-body.md` | `c388fccc00f39ae527942675bd2457d495ea2f481503aa72142821f1f822af20` |
@@ -151,7 +151,7 @@ New evaluation material is synthetic or software-verification evidence. It is no
 | `evals/fixtures/resumed-accepted-correction/workspace/docs/product/master-prd-roadmap.md` | `d12fb29d868af75300bea84291907153c164df1503b7fc96bf26d2b5b2c82bd2` |
 | `evals/fixtures/resumed-accepted-correction/workspace/docs/product/queueboard-handoff-brief.md` | `3180c60efaaac5d6d077d277705effa323d59c5094830afcec5e74da53d8d5c2` |
 | `evals/fixtures/resumed-accepted-correction/workspace/sources/correction.md` | `73089b5d78a5e0a9de8a92734ed3a3e4e6f1feedba273444e910590528a96fbb` |
-| `evals/fixtures/source-conflict-status/README.md` | `139e26ac29d0583487f1e553ccfce3b66db0d5a6fac8e5bc3a1475d61447c847` |
+| `evals/fixtures/source-conflict-status/README.md` | `90976b64dca17ca42714a526c3b584ade3bd164d6a7d9b32d77845d4a3cc168c` |
 | `evals/fixtures/source-conflict-status/appended-contradiction.md` | `0a5689b4276abfc232eeb1db3f30c9b3b3ae530d7477df90e45a08f02ffe8d46` |
 | `evals/fixtures/source-conflict-status/appendix-laundered.md` | `d817f7e8edbf345e1b408a070cf8027f066be66bfa436ba43d99cec025b10d3e` |
 | `evals/fixtures/source-conflict-status/contradictory-body.md` | `904c440bfd2352e53d9b2f2f1f51ce7c4565ca44acf1abdade905c0f67656791` |
@@ -167,7 +167,7 @@ New evaluation material is synthetic or software-verification evidence. It is no
 | `evals/fixtures/source-conflict-status/workspace/context/room/review.md` | `b7cc21966908dfb6614fb4a4c94c0ba5dfcbafb79fdd274ebc7059924b6b5954` |
 | `evals/fixtures/source-conflict-status/workspace/sources/discussion.md` | `c6ee991ac1291472415d337fb8850bc13e1e1fe1187353533f11c349af5e3d41` |
 | `evals/fixtures/source-conflict-status/workspace/sources/tracker.md` | `0b2e2b36f2939b80879bd9613226c851010eddbc458c62863434bd1133048d36` |
-| `evals/fixtures/unavailable-source-recovery/README.md` | `f004b722ded183de8e87dffbbac7454757d619b013705f212a5923192e00bfe7` |
+| `evals/fixtures/unavailable-source-recovery/README.md` | `5e2f98b4aa7e0dc02f9b6cc57f6d8a27290686eddd60642a3a9b272662260b1b` |
 | `evals/fixtures/unavailable-source-recovery/appended-contradiction.md` | `da813a5de138c5e76d8b36f277a0d9d25973382380544213e62bdc73b4b12edd` |
 | `evals/fixtures/unavailable-source-recovery/appendix-laundered.md` | `9791e8080ba41ab9881d54542e0d267ba15279a50be364f420ad45ddacdf1277` |
 | `evals/fixtures/unavailable-source-recovery/contradictory-body.md` | `308e57bc30817cf84710ec51385d77cb1e60b338c84dd3d7c4e1caa85675e34f` |
