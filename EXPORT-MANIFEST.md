@@ -8,7 +8,7 @@ This is a curated public-safe export of original Company OS workspace material. 
 |---|---|---|
 | `AGENTS.md` | `45cbdc23e35dc84874298eb7e767bca1b0016dca6b54b91ea3867f1e504c99a1` | Public host adapter |
 | `CLAUDE.md` | `4080052457b5bb292cdc719c7744b86343792e7574b32b0326dd26117eedc85c` | Original template, minimally redacted |
-| `README.md` | `65b7b87acf591e497663b2a752905b6df9556f8fc55e68ab7194f717294307c5` | Public packaging guide |
+| `README.md` | `fb4227c4654370e19d0b4b900fc6f8643a8ec70d368434309f61f825f80ce42a` | Public packaging guide |
 | `cache/README.md` | `1234e935ac67fc5ce8ebeb5fd3334ede15ce988ce79c12d7e956c30aa7ab8bdd` | Public guide, rewritten from original template |
 | `context/README.md` | `5e6dffa3b6efafe8f5f54673c3f76c036e2922b4e81a7d904c9fe45ed97ba51c` | Public guide, rewritten from original template |
 | `context/artifacts.md` | `e44e146fb6f40deccc32a69a94e1349e2eeec2f72164b0e580b7f111bd1020c8` | Byte-identical source export |

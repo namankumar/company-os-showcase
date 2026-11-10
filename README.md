@@ -1,14 +1,29 @@
 # Company OS
 
-Company OS is a file-first skills workspace for running recurring company work with an existing agent host. The exported skills are original authored workflow instructions from the private Company OS workspace, retained byte-for-byte where safe. They turn company context, source snapshots, and prior documents into repeatable briefs, strategy work, research, product documents, roadmaps, and communications.
+I kept rebuilding the same context whenever I asked an agent to help with product work. Company OS puts that context, the workflow instructions and the output in files I can read and reuse.
 
-This repository is the workspace layer, not a hosted autonomous-company product. It contains no model runtime, connector credentials, scheduler, database, production integration, or background agent. A configured Codex or Claude Code host reads these files and performs only the tools and actions you explicitly make available.
+This is the workspace I use for planning, status reviews, research, roadmaps and writing. You bring the agent host and your own company information. There isn't a separate app, background agent or scheduler in this repo.
+
+## Start with one status review
+
+1. Fill in the placeholders in `CLAUDE.md`, `context/` and `tasks-db.md` with your own context.
+2. Start Codex or Claude Code from this directory.
+3. Ask it to prepare a local status draft using only the files you've supplied:
+
+```text
+Read AGENTS.md and CLAUDE.md, then .claude/skills/status/SKILL.md.
+Use the context and tasks in this checkout to prepare a local status draft.
+Mark missing information as unknown. Don't connect accounts, send messages
+or change external systems.
+```
+
+No source accounts come connected. Some skills refer to optional snapshots or companion workflows from my private workspace; those aren't included. Add your own sources when you need them, keeping credentials and raw company data out of Git.
 
 ## What is included
 
 - **Operating context templates:** current context, goals, narratives, cadences, artifacts, tasks, and document folders.
 - **Original skill instructions:** a curated selection covering status, strategy, shaping, PRDs, roadmaps, market research, and essays.
-- **Host-facing orchestration:** original status and roadmap workflows demonstrate source-linked operating artifacts without exposing the private source registry that powered them.
+- **Status and roadmap workflows:** instructions for turning source material into a draft, with references you can check.
 - **Writing utilities:** the original document-writing and Google Docs formatting instructions.
 
 The file inventory and SHA-256 hashes are in [EXPORT-MANIFEST.md](EXPORT-MANIFEST.md). Files retained unchanged are copied byte-for-byte. The workspace adapter and a small set of workflow instructions retain their original structure with documented privacy substitutions.
@@ -21,29 +36,6 @@ The file inventory and SHA-256 hashes are in [EXPORT-MANIFEST.md](EXPORT-MANIFES
 - Separate application prototypes. This repository is the skills workspace, not a product UI or agent runtime.
 
 Some retained instructions refer to optional snapshots, meeting context, or companion skills from the original private workspace. They are intentionally absent here. Treat those references as extension points for your own private configuration, not as included functionality.
-
-## Start with your own host and sources
-
-1. Replace the `{{PLACEHOLDERS}}` in `CLAUDE.md`, `context/`, and `tasks-db.md` with your own company context.
-2. Configure the tools and source access you want your host to use. Keep raw source snapshots and credentials out of version control.
-3. Start Claude Code or Codex from the repository root.
-4. Ask the host to read the workspace instructions and run the relevant skill.
-
-For Claude Code:
-
-```sh
-claude
-```
-
-Then ask it to follow an included skill such as `.claude/skills/status/SKILL.md`.
-
-For Codex, start from this directory and use a direct instruction such as:
-
-```text
-Read AGENTS.md and CLAUDE.md. Read the relevant context and existing docs.
-Follow .claude/skills/status/SKILL.md to prepare a local status artifact.
-Do not send messages or make external changes unless I explicitly authorize them.
-```
 
 ## How the workspace works
 
